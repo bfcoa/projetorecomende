@@ -1,0 +1,45 @@
+﻿body
+{
+}
+#Header
+{
+	width: 1024px;
+	height: 194px;
+	float: left;
+}
+#HeaderLeft
+{
+	width: 70%;
+	height: 134px;
+	float: left;
+}
+#HeaderLogo
+{
+	width: 30%;
+	height: 134px;
+	float: left;
+}
+#HeaderBanner
+{
+	width: 70%;
+	height: 134px;
+	float: left;
+}
+#HeaderRight
+{
+	width: 30%;
+	height: 134px;
+	float: left;
+}
+#Menu
+{
+	height: 58px;
+	width: 100%;
+	float: left;
+	display:none;
+/*	display:inline;*/
+}
+#Menu ul li
+{
+	display:inline;
+}
