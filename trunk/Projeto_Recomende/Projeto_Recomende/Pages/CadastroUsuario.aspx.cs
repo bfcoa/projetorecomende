@@ -32,10 +32,12 @@ namespace Projeto_Recomende.Pages
                     usuario.nm_usuario = txtNome.Text;
                     usuario.email = txtEmail.Text;
                     usuario.senha = txtSenha.Text;
-                    string caminho = Server.MapPath(@"../Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName);
+                    string caminho = Server.MapPath(@"/Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName);
+                //    string caminho = @"/Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName;
                     //if (!File.Exists(caminho))
                     //{
-                    usuario.end_foto = caminho;
+                    usuario.end_foto = (@"/Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName);
+                    fuFotoPerfil.SaveAs(caminho);
                     //}
 
 

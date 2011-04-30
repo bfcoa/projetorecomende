@@ -22,7 +22,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("db_recomendeModel", "FK_tb_filme_tb_comentario", "tb_comentario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Projeto_Recomende.tb_comentario), "tb_filme", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Projeto_Recomende.tb_filme), true)]
 [assembly: EdmRelationshipAttribute("db_recomendeModel", "FK_tb_filme_tb_genero", "tb_genero", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Projeto_Recomende.tb_genero), "tb_filme", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Projeto_Recomende.tb_filme), true)]
 [assembly: EdmRelationshipAttribute("db_recomendeModel", "FK_tb_recomendacoes_tb_filme", "tb_filme", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Projeto_Recomende.tb_filme), "tb_recomendacoes", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Projeto_Recomende.tb_recomendacoes), true)]
-[assembly: EdmRelationshipAttribute("db_recomendeModel", "FK_tb_usuario_tb_grupos", "tb_grupos", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Projeto_Recomende.tb_grupos), "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Projeto_Recomende.tb_usuario), true)]
+[assembly: EdmRelationshipAttribute("db_recomendeModel", "FK_tb_usuario_tb_grupos", "tb_grupos", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Projeto_Recomende.tb_grupos), "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Projeto_Recomende.tb_usuario), true)]
 [assembly: EdmRelationshipAttribute("db_recomendeModel", "FK_tb_usuarioXrecomendacoes_tb_recomendacoes", "tb_recomendacoes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Projeto_Recomende.tb_recomendacoes), "tb_usuarioXrecomendacoes", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Projeto_Recomende.tb_usuarioXrecomendacoes), true)]
 [assembly: EdmRelationshipAttribute("db_recomendeModel", "FK_tb_usuarioXrecomendacoes_tb_usuario", "tb_usuario", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Projeto_Recomende.tb_usuario), "tb_usuarioXrecomendacoes", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Projeto_Recomende.tb_usuarioXrecomendacoes), true)]
 
@@ -1405,15 +1405,13 @@ namespace Projeto_Recomende
         /// <param name="nm_usuario">Initial value of the nm_usuario property.</param>
         /// <param name="email">Initial value of the email property.</param>
         /// <param name="senha">Initial value of the senha property.</param>
-        /// <param name="id_grupo">Initial value of the id_grupo property.</param>
-        public static tb_usuario Createtb_usuario(global::System.Int32 id_usuario, global::System.String nm_usuario, global::System.String email, global::System.String senha, global::System.Int32 id_grupo)
+        public static tb_usuario Createtb_usuario(global::System.Int32 id_usuario, global::System.String nm_usuario, global::System.String email, global::System.String senha)
         {
             tb_usuario tb_usuario = new tb_usuario();
             tb_usuario.id_usuario = id_usuario;
             tb_usuario.nm_usuario = nm_usuario;
             tb_usuario.email = email;
             tb_usuario.senha = senha;
-            tb_usuario.id_grupo = id_grupo;
             return tb_usuario;
         }
 
@@ -1522,9 +1520,9 @@ namespace Projeto_Recomende
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 id_grupo
+        public Nullable<global::System.Int32> id_grupo
         {
             get
             {
@@ -1539,8 +1537,8 @@ namespace Projeto_Recomende
                 Onid_grupoChanged();
             }
         }
-        private global::System.Int32 _id_grupo;
-        partial void Onid_grupoChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _id_grupo;
+        partial void Onid_grupoChanging(Nullable<global::System.Int32> value);
         partial void Onid_grupoChanged();
     
         /// <summary>

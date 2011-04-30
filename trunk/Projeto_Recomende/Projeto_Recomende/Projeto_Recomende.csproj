@@ -61,6 +61,7 @@
     <Content Include="Pages\PerfilUsuario.aspx" />
     <Content Include="Pages\RecomendarFilmes.aspx" />
     <Content Include="Pages\SAC.aspx" />
+    <Content Include="Pages\SessaoExpirou.aspx" />
     <Content Include="Util\Scrypts\jquery-1.5.2.min.js" />
     <Content Include="Util\Scrypts\jquery-1.5.2.js" />
     <Content Include="Util\Scrypts\lightbox2.05\css\lightbox.css" />
@@ -167,6 +168,13 @@
     </Compile>
     <Compile Include="Pages\SAC.aspx.designer.cs">
       <DependentUpon>SAC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SessaoExpirou.aspx.cs">
+      <DependentUpon>SessaoExpirou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\SessaoExpirou.aspx.designer.cs">
+      <DependentUpon>SessaoExpirou.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
