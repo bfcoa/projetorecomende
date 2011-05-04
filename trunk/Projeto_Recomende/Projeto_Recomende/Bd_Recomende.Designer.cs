@@ -159,6 +159,22 @@ namespace Projeto_Recomende
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<tb_noticias> tb_noticias
+        {
+            get
+            {
+                if ((_tb_noticias == null))
+                {
+                    _tb_noticias = base.CreateObjectSet<tb_noticias>("tb_noticias");
+                }
+                return _tb_noticias;
+            }
+        }
+        private ObjectSet<tb_noticias> _tb_noticias;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<tb_recomendacoes> tb_recomendacoes
         {
             get
@@ -245,6 +261,14 @@ namespace Projeto_Recomende
         public void AddTotb_grupos(tb_grupos tb_grupos)
         {
             base.AddObject("tb_grupos", tb_grupos);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the tb_noticias EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTotb_noticias(tb_noticias tb_noticias)
+        {
+            base.AddObject("tb_noticias", tb_noticias);
         }
     
         /// <summary>
@@ -1247,6 +1271,133 @@ namespace Projeto_Recomende
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="db_recomendeModel", Name="tb_noticias")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class tb_noticias : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new tb_noticias object.
+        /// </summary>
+        /// <param name="id_noticia">Initial value of the id_noticia property.</param>
+        public static tb_noticias Createtb_noticias(global::System.Int32 id_noticia)
+        {
+            tb_noticias tb_noticias = new tb_noticias();
+            tb_noticias.id_noticia = id_noticia;
+            return tb_noticias;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 id_noticia
+        {
+            get
+            {
+                return _id_noticia;
+            }
+            set
+            {
+                if (_id_noticia != value)
+                {
+                    Onid_noticiaChanging(value);
+                    ReportPropertyChanging("id_noticia");
+                    _id_noticia = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("id_noticia");
+                    Onid_noticiaChanged();
+                }
+            }
+        }
+        private global::System.Int32 _id_noticia;
+        partial void Onid_noticiaChanging(global::System.Int32 value);
+        partial void Onid_noticiaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String titulo
+        {
+            get
+            {
+                return _titulo;
+            }
+            set
+            {
+                OntituloChanging(value);
+                ReportPropertyChanging("titulo");
+                _titulo = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("titulo");
+                OntituloChanged();
+            }
+        }
+        private global::System.String _titulo;
+        partial void OntituloChanging(global::System.String value);
+        partial void OntituloChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String noticia
+        {
+            get
+            {
+                return _noticia;
+            }
+            set
+            {
+                OnnoticiaChanging(value);
+                ReportPropertyChanging("noticia");
+                _noticia = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("noticia");
+                OnnoticiaChanged();
+            }
+        }
+        private global::System.String _noticia;
+        partial void OnnoticiaChanging(global::System.String value);
+        partial void OnnoticiaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> data
+        {
+            get
+            {
+                return _data;
+            }
+            set
+            {
+                OndataChanging(value);
+                ReportPropertyChanging("data");
+                _data = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("data");
+                OndataChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _data;
+        partial void OndataChanging(Nullable<global::System.DateTime> value);
+        partial void OndataChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="db_recomendeModel", Name="tb_recomendacoes")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1564,6 +1715,30 @@ namespace Projeto_Recomende
         private global::System.String _end_foto;
         partial void Onend_fotoChanging(global::System.String value);
         partial void Onend_fotoChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String tipo_usuario
+        {
+            get
+            {
+                return _tipo_usuario;
+            }
+            set
+            {
+                Ontipo_usuarioChanging(value);
+                ReportPropertyChanging("tipo_usuario");
+                _tipo_usuario = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("tipo_usuario");
+                Ontipo_usuarioChanged();
+            }
+        }
+        private global::System.String _tipo_usuario;
+        partial void Ontipo_usuarioChanging(global::System.String value);
+        partial void Ontipo_usuarioChanged();
 
         #endregion
     

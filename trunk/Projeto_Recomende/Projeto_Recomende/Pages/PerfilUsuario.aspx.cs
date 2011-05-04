@@ -19,17 +19,18 @@ namespace Projeto_Recomende.Pages
                 ViewState["usuario"] = Session["usuario"];
                 Session.Remove("usuario");
             }
+            user = (tb_usuario) ViewState["usuario"];
             if (ViewState["usuario"] != null)
             {
                 user = (tb_usuario)ViewState["usuario"];
 
-                var query = from usuario in entities.tb_usuario
+                var query = (from usuario in entities.tb_usuario
                             where usuario.id_usuario == user.id_usuario
-                            select usuario;
+                            select usuario).ToList<tb_usuario>().ElementAt(0);
 
 
                 lblNome.Text = user.nm_usuario;
-                imgPerfil.ImageUrl = query.ToList<tb_usuario>().ElementAt(0).end_foto;
+                imgPerfil.ImageUrl = query.end_foto;
 
             }
            /* else
@@ -39,6 +40,12 @@ namespace Projeto_Recomende.Pages
         protected void bntConfirma_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void lbEditar_Click(object sender, EventArgs e)
+        {
+            Session["User"] = ViewState["usuario"];
+            Response.Redirect("~/Pages/CadastroUsuario.aspx");
         }
     }
 }
