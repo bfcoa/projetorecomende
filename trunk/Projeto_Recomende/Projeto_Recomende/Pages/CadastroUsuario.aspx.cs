@@ -49,9 +49,10 @@ namespace Projeto_Recomende.Pages
                     usuario.nm_usuario = txtNome.Text;
                     usuario.email = txtEmail.Text;
                     usuario.senha = txtSenha.Text;
-                    string caminho = Server.MapPath(@"/Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName);
+                /*    string caminho = Server.MapPath(@"/Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName);
                     usuario.end_foto = (@"/Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName);
-                    fuFotoPerfil.SaveAs(caminho);
+                    
+                    fuFotoPerfil.SaveAs(caminho);*/
                     
                 }
                 else  // vai cadastra novo usuario
