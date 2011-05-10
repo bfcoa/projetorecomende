@@ -4,17 +4,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="../Util/Scrypts/ExtJS/resources/css/ext-all.css" rel="stylesheet" type="text/css" />
-    <script src="../Util/Scrypts/ExtJS/adapter/ext/ext-base.js" type="text/javascript"></script>
-    <script src="../Util/Scrypts/ExtJS/ext-all.js" type="text/javascript"></script>
     <link href="../Util/Scrypts/ExtJS/resources/css/xtheme-gray.css" rel="stylesheet"
         type="text/css" />
+    <script src="../Util/Scrypts/ExtJS/adapter/ext/ext-base.js" type="text/javascript"></script>
+    <script src="../Util/Scrypts/ExtJS/ext-all.js" type="text/javascript"></script>
+    
     <script src="../Util/Scrypts/ExtJS/src/locale/ext-lang-pt_BR.js" type="text/javascript"></script>
-</head>
-<body>
-    <script>
+    
 
-     
-   
-    </script>
+</head>
+<body>    
+    <script src="../Util/Scrypts/AdmPage.js" type="text/javascript"></script>
 </body>
 </html>
