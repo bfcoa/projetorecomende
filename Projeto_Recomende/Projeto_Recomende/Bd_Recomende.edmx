@@ -1,0 +1,621 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_recomendeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="db_recomendeModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="db_recomendeModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_comentario" EntityType="db_recomendeModel.Store.tb_comentario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_filme" EntityType="db_recomendeModel.Store.tb_filme" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_genero" EntityType="db_recomendeModel.Store.tb_genero" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_grupos" EntityType="db_recomendeModel.Store.tb_grupos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_noticias" EntityType="db_recomendeModel.Store.tb_noticias" store:Type="Tables" store:Schema="dbo" store:Name="tb_noticias">
+            <DefiningQuery>SELECT 
+      [tb_noticias].[id_noticia] AS [id_noticia], 
+      [tb_noticias].[titulo] AS [titulo], 
+      [tb_noticias].[noticia] AS [noticia], 
+      [tb_noticias].[data] AS [data]
+      FROM [dbo].[tb_noticias] AS [tb_noticias]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="tb_recomendacoes" EntityType="db_recomendeModel.Store.tb_recomendacoes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_usuario" EntityType="db_recomendeModel.Store.tb_usuario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tb_usuarioXrecomendacoes" EntityType="db_recomendeModel.Store.tb_usuarioXrecomendacoes" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_tb_comentario_tb_usuario" Association="db_recomendeModel.Store.FK_tb_comentario_tb_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_comentario" EntitySet="tb_comentario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_filme_tb_comentario" Association="db_recomendeModel.Store.FK_tb_filme_tb_comentario">
+            <End Role="tb_comentario" EntitySet="tb_comentario" />
+            <End Role="tb_filme" EntitySet="tb_filme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_filme_tb_genero" Association="db_recomendeModel.Store.FK_tb_filme_tb_genero">
+            <End Role="tb_genero" EntitySet="tb_genero" />
+            <End Role="tb_filme" EntitySet="tb_filme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_recomendacoes_tb_filme" Association="db_recomendeModel.Store.FK_tb_recomendacoes_tb_filme">
+            <End Role="tb_filme" EntitySet="tb_filme" />
+            <End Role="tb_recomendacoes" EntitySet="tb_recomendacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_usuario_tb_grupos" Association="db_recomendeModel.Store.FK_tb_usuario_tb_grupos">
+            <End Role="tb_grupos" EntitySet="tb_grupos" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_usuarioXrecomendacoes_tb_recomendacoes" Association="db_recomendeModel.Store.FK_tb_usuarioXrecomendacoes_tb_recomendacoes">
+            <End Role="tb_recomendacoes" EntitySet="tb_recomendacoes" />
+            <End Role="tb_usuarioXrecomendacoes" EntitySet="tb_usuarioXrecomendacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_usuarioXrecomendacoes_tb_usuario" Association="db_recomendeModel.Store.FK_tb_usuarioXrecomendacoes_tb_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_usuarioXrecomendacoes" EntitySet="tb_usuarioXrecomendacoes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tb_comentario">
+          <Key>
+            <PropertyRef Name="id_comentario" />
+          </Key>
+          <Property Name="id_comentario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="desc_comentario" Type="text" Nullable="false" />
+          <Property Name="dataComentario" Type="datetime" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_filme">
+          <Key>
+            <PropertyRef Name="cod_filme" />
+          </Key>
+          <Property Name="cod_filme" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nm_titulo" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="nm_tituloOriginal" Type="varchar" MaxLength="50" />
+          <Property Name="dt_anoProducao" Type="datetime" />
+          <Property Name="txt_sinopse" Type="text" />
+          <Property Name="duracao" Type="varchar" MaxLength="50" />
+          <Property Name="elenco" Type="varchar" MaxLength="500" />
+          <Property Name="genero" Type="varchar" MaxLength="30" />
+          <Property Name="id_genero" Type="int" Nullable="false" />
+          <Property Name="foto" Type="varchar" MaxLength="50" />
+          <Property Name="id_comentario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_genero">
+          <Key>
+            <PropertyRef Name="id_genero" />
+          </Key>
+          <Property Name="id_genero" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="tp_genero" Type="varchar" Nullable="false" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="tb_grupos">
+          <Key>
+            <PropertyRef Name="id_grupo" />
+          </Key>
+          <Property Name="id_grupo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="pontuacaoUsuario" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'db_recomende.dbo.tb_noticias' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="tb_noticias">
+          <Key>
+            <PropertyRef Name="id_noticia" />
+          </Key>
+          <Property Name="id_noticia" Type="int" Nullable="false" />
+          <Property Name="titulo" Type="varchar" MaxLength="50" />
+          <Property Name="noticia" Type="text" />
+          <Property Name="data" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_recomendacoes">
+          <Key>
+            <PropertyRef Name="id_recomendacao" />
+          </Key>
+          <Property Name="cod_filme" Type="int" Nullable="false" />
+          <Property Name="id_recomendacao" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Name="id_usuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="nm_usuario" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="email" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="senha" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="id_grupo" Type="int" />
+          <Property Name="end_foto" Type="varchar" MaxLength="500" />
+          <Property Name="tipo_usuario" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_usuarioXrecomendacoes">
+          <Key>
+            <PropertyRef Name="id_usuario_recom" />
+          </Key>
+          <Property Name="id_usuario_recom" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="id_recomende" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tb_comentario_tb_usuario">
+          <End Role="tb_usuario" Type="db_recomendeModel.Store.tb_usuario" Multiplicity="1" />
+          <End Role="tb_comentario" Type="db_recomendeModel.Store.tb_comentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="tb_comentario">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_filme_tb_comentario">
+          <End Role="tb_comentario" Type="db_recomendeModel.Store.tb_comentario" Multiplicity="1" />
+          <End Role="tb_filme" Type="db_recomendeModel.Store.tb_filme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_comentario">
+              <PropertyRef Name="id_comentario" />
+            </Principal>
+            <Dependent Role="tb_filme">
+              <PropertyRef Name="id_comentario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_filme_tb_genero">
+          <End Role="tb_genero" Type="db_recomendeModel.Store.tb_genero" Multiplicity="1" />
+          <End Role="tb_filme" Type="db_recomendeModel.Store.tb_filme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_genero">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="tb_filme">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_recomendacoes_tb_filme">
+          <End Role="tb_filme" Type="db_recomendeModel.Store.tb_filme" Multiplicity="1" />
+          <End Role="tb_recomendacoes" Type="db_recomendeModel.Store.tb_recomendacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_filme">
+              <PropertyRef Name="cod_filme" />
+            </Principal>
+            <Dependent Role="tb_recomendacoes">
+              <PropertyRef Name="cod_filme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_usuario_tb_grupos">
+          <End Role="tb_grupos" Type="db_recomendeModel.Store.tb_grupos" Multiplicity="0..1" />
+          <End Role="tb_usuario" Type="db_recomendeModel.Store.tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_grupos">
+              <PropertyRef Name="id_grupo" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="id_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_usuarioXrecomendacoes_tb_recomendacoes">
+          <End Role="tb_recomendacoes" Type="db_recomendeModel.Store.tb_recomendacoes" Multiplicity="1" />
+          <End Role="tb_usuarioXrecomendacoes" Type="db_recomendeModel.Store.tb_usuarioXrecomendacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_recomendacoes">
+              <PropertyRef Name="id_recomendacao" />
+            </Principal>
+            <Dependent Role="tb_usuarioXrecomendacoes">
+              <PropertyRef Name="id_recomende" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_usuarioXrecomendacoes_tb_usuario">
+          <End Role="tb_usuario" Type="db_recomendeModel.Store.tb_usuario" Multiplicity="1" />
+          <End Role="tb_usuarioXrecomendacoes" Type="db_recomendeModel.Store.tb_usuarioXrecomendacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="tb_usuarioXrecomendacoes">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_recomendeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="recomendeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="db_recomendeModel.sysdiagrams" />
+          <EntitySet Name="tb_comentario" EntityType="db_recomendeModel.tb_comentario" />
+          <EntitySet Name="tb_filme" EntityType="db_recomendeModel.tb_filme" />
+          <EntitySet Name="tb_genero" EntityType="db_recomendeModel.tb_genero" />
+          <EntitySet Name="tb_grupos" EntityType="db_recomendeModel.tb_grupos" />
+          <EntitySet Name="tb_noticias" EntityType="db_recomendeModel.tb_noticias" />
+          <EntitySet Name="tb_recomendacoes" EntityType="db_recomendeModel.tb_recomendacoes" />
+          <EntitySet Name="tb_usuario" EntityType="db_recomendeModel.tb_usuario" />
+          <EntitySet Name="tb_usuarioXrecomendacoes" EntityType="db_recomendeModel.tb_usuarioXrecomendacoes" />
+          <AssociationSet Name="FK_tb_comentario_tb_usuario" Association="db_recomendeModel.FK_tb_comentario_tb_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_comentario" EntitySet="tb_comentario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_filme_tb_comentario" Association="db_recomendeModel.FK_tb_filme_tb_comentario">
+            <End Role="tb_comentario" EntitySet="tb_comentario" />
+            <End Role="tb_filme" EntitySet="tb_filme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_filme_tb_genero" Association="db_recomendeModel.FK_tb_filme_tb_genero">
+            <End Role="tb_genero" EntitySet="tb_genero" />
+            <End Role="tb_filme" EntitySet="tb_filme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_recomendacoes_tb_filme" Association="db_recomendeModel.FK_tb_recomendacoes_tb_filme">
+            <End Role="tb_filme" EntitySet="tb_filme" />
+            <End Role="tb_recomendacoes" EntitySet="tb_recomendacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_usuario_tb_grupos" Association="db_recomendeModel.FK_tb_usuario_tb_grupos">
+            <End Role="tb_grupos" EntitySet="tb_grupos" />
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_usuarioXrecomendacoes_tb_recomendacoes" Association="db_recomendeModel.FK_tb_usuarioXrecomendacoes_tb_recomendacoes">
+            <End Role="tb_recomendacoes" EntitySet="tb_recomendacoes" />
+            <End Role="tb_usuarioXrecomendacoes" EntitySet="tb_usuarioXrecomendacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_usuarioXrecomendacoes_tb_usuario" Association="db_recomendeModel.FK_tb_usuarioXrecomendacoes_tb_usuario">
+            <End Role="tb_usuario" EntitySet="tb_usuario" />
+            <End Role="tb_usuarioXrecomendacoes" EntitySet="tb_usuarioXrecomendacoes" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tb_comentario">
+          <Key>
+            <PropertyRef Name="id_comentario" />
+          </Key>
+          <Property Type="Int32" Name="id_comentario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="desc_comentario" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dataComentario" Nullable="false" />
+          <Property Type="Int32" Name="id_usuario" Nullable="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="db_recomendeModel.FK_tb_comentario_tb_usuario" FromRole="tb_comentario" ToRole="tb_usuario" />
+          <NavigationProperty Name="tb_filme" Relationship="db_recomendeModel.FK_tb_filme_tb_comentario" FromRole="tb_comentario" ToRole="tb_filme" />
+        </EntityType>
+        <EntityType Name="tb_filme">
+          <Key>
+            <PropertyRef Name="cod_filme" />
+          </Key>
+          <Property Type="Int32" Name="cod_filme" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="nm_titulo" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="nm_tituloOriginal" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="dt_anoProducao" />
+          <Property Type="String" Name="txt_sinopse" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="duracao" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="elenco" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="genero" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="id_genero" Nullable="false" />
+          <Property Type="String" Name="foto" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="id_comentario" Nullable="false" />
+          <NavigationProperty Name="tb_comentario" Relationship="db_recomendeModel.FK_tb_filme_tb_comentario" FromRole="tb_filme" ToRole="tb_comentario" />
+          <NavigationProperty Name="tb_genero" Relationship="db_recomendeModel.FK_tb_filme_tb_genero" FromRole="tb_filme" ToRole="tb_genero" />
+          <NavigationProperty Name="tb_recomendacoes" Relationship="db_recomendeModel.FK_tb_recomendacoes_tb_filme" FromRole="tb_filme" ToRole="tb_recomendacoes" />
+        </EntityType>
+        <EntityType Name="tb_genero">
+          <Key>
+            <PropertyRef Name="id_genero" />
+          </Key>
+          <Property Type="Int32" Name="id_genero" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="tp_genero" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_filme" Relationship="db_recomendeModel.FK_tb_filme_tb_genero" FromRole="tb_genero" ToRole="tb_filme" />
+        </EntityType>
+        <EntityType Name="tb_grupos">
+          <Key>
+            <PropertyRef Name="id_grupo" />
+          </Key>
+          <Property Type="Int32" Name="id_grupo" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="pontuacaoUsuario" Nullable="false" />
+          <NavigationProperty Name="tb_usuario" Relationship="db_recomendeModel.FK_tb_usuario_tb_grupos" FromRole="tb_grupos" ToRole="tb_usuario" />
+        </EntityType>
+        <EntityType Name="tb_noticias">
+          <Key>
+            <PropertyRef Name="id_noticia" />
+          </Key>
+          <Property Type="Int32" Name="id_noticia" Nullable="false" />
+          <Property Type="String" Name="titulo" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="noticia" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="data" />
+        </EntityType>
+        <EntityType Name="tb_recomendacoes">
+          <Key>
+            <PropertyRef Name="id_recomendacao" />
+          </Key>
+          <Property Type="Int32" Name="cod_filme" Nullable="false" />
+          <Property Type="Int32" Name="id_recomendacao" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="tb_filme" Relationship="db_recomendeModel.FK_tb_recomendacoes_tb_filme" FromRole="tb_recomendacoes" ToRole="tb_filme" />
+          <NavigationProperty Name="tb_usuarioXrecomendacoes" Relationship="db_recomendeModel.FK_tb_usuarioXrecomendacoes_tb_recomendacoes" FromRole="tb_recomendacoes" ToRole="tb_usuarioXrecomendacoes" />
+        </EntityType>
+        <EntityType Name="tb_usuario">
+          <Key>
+            <PropertyRef Name="id_usuario" />
+          </Key>
+          <Property Type="Int32" Name="id_usuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="nm_usuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="senha" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="id_grupo" />
+          <Property Type="String" Name="end_foto" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="tipo_usuario" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tb_comentario" Relationship="db_recomendeModel.FK_tb_comentario_tb_usuario" FromRole="tb_usuario" ToRole="tb_comentario" />
+          <NavigationProperty Name="tb_grupos" Relationship="db_recomendeModel.FK_tb_usuario_tb_grupos" FromRole="tb_usuario" ToRole="tb_grupos" />
+          <NavigationProperty Name="tb_usuarioXrecomendacoes" Relationship="db_recomendeModel.FK_tb_usuarioXrecomendacoes_tb_usuario" FromRole="tb_usuario" ToRole="tb_usuarioXrecomendacoes" />
+        </EntityType>
+        <EntityType Name="tb_usuarioXrecomendacoes">
+          <Key>
+            <PropertyRef Name="id_usuario_recom" />
+          </Key>
+          <Property Type="Int32" Name="id_usuario_recom" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="id_usuario" Nullable="false" />
+          <Property Type="Int32" Name="id_recomende" Nullable="false" />
+          <NavigationProperty Name="tb_recomendacoes" Relationship="db_recomendeModel.FK_tb_usuarioXrecomendacoes_tb_recomendacoes" FromRole="tb_usuarioXrecomendacoes" ToRole="tb_recomendacoes" />
+          <NavigationProperty Name="tb_usuario" Relationship="db_recomendeModel.FK_tb_usuarioXrecomendacoes_tb_usuario" FromRole="tb_usuarioXrecomendacoes" ToRole="tb_usuario" />
+        </EntityType>
+        <Association Name="FK_tb_comentario_tb_usuario">
+          <End Type="db_recomendeModel.tb_usuario" Role="tb_usuario" Multiplicity="1" />
+          <End Type="db_recomendeModel.tb_comentario" Role="tb_comentario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="tb_comentario">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_filme_tb_comentario">
+          <End Type="db_recomendeModel.tb_comentario" Role="tb_comentario" Multiplicity="1" />
+          <End Type="db_recomendeModel.tb_filme" Role="tb_filme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_comentario">
+              <PropertyRef Name="id_comentario" />
+            </Principal>
+            <Dependent Role="tb_filme">
+              <PropertyRef Name="id_comentario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_filme_tb_genero">
+          <End Type="db_recomendeModel.tb_genero" Role="tb_genero" Multiplicity="1" />
+          <End Type="db_recomendeModel.tb_filme" Role="tb_filme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_genero">
+              <PropertyRef Name="id_genero" />
+            </Principal>
+            <Dependent Role="tb_filme">
+              <PropertyRef Name="id_genero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_recomendacoes_tb_filme">
+          <End Type="db_recomendeModel.tb_filme" Role="tb_filme" Multiplicity="1" />
+          <End Type="db_recomendeModel.tb_recomendacoes" Role="tb_recomendacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_filme">
+              <PropertyRef Name="cod_filme" />
+            </Principal>
+            <Dependent Role="tb_recomendacoes">
+              <PropertyRef Name="cod_filme" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_usuario_tb_grupos">
+          <End Type="db_recomendeModel.tb_grupos" Role="tb_grupos" Multiplicity="0..1" />
+          <End Type="db_recomendeModel.tb_usuario" Role="tb_usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_grupos">
+              <PropertyRef Name="id_grupo" />
+            </Principal>
+            <Dependent Role="tb_usuario">
+              <PropertyRef Name="id_grupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_usuarioXrecomendacoes_tb_recomendacoes">
+          <End Type="db_recomendeModel.tb_recomendacoes" Role="tb_recomendacoes" Multiplicity="1" />
+          <End Type="db_recomendeModel.tb_usuarioXrecomendacoes" Role="tb_usuarioXrecomendacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_recomendacoes">
+              <PropertyRef Name="id_recomendacao" />
+            </Principal>
+            <Dependent Role="tb_usuarioXrecomendacoes">
+              <PropertyRef Name="id_recomende" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_usuarioXrecomendacoes_tb_usuario">
+          <End Type="db_recomendeModel.tb_usuario" Role="tb_usuario" Multiplicity="1" />
+          <End Type="db_recomendeModel.tb_usuarioXrecomendacoes" Role="tb_usuarioXrecomendacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_usuario">
+              <PropertyRef Name="id_usuario" />
+            </Principal>
+            <Dependent Role="tb_usuarioXrecomendacoes">
+              <PropertyRef Name="id_usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_recomendeModelStoreContainer" CdmEntityContainer="recomendeEntities">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="db_recomendeModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_comentario">
+            <EntityTypeMapping TypeName="db_recomendeModel.tb_comentario">
+              <MappingFragment StoreEntitySet="tb_comentario">
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="dataComentario" ColumnName="dataComentario" />
+                <ScalarProperty Name="desc_comentario" ColumnName="desc_comentario" />
+                <ScalarProperty Name="id_comentario" ColumnName="id_comentario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_filme">
+            <EntityTypeMapping TypeName="db_recomendeModel.tb_filme">
+              <MappingFragment StoreEntitySet="tb_filme">
+                <ScalarProperty Name="id_comentario" ColumnName="id_comentario" />
+                <ScalarProperty Name="foto" ColumnName="foto" />
+                <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="elenco" ColumnName="elenco" />
+                <ScalarProperty Name="duracao" ColumnName="duracao" />
+                <ScalarProperty Name="txt_sinopse" ColumnName="txt_sinopse" />
+                <ScalarProperty Name="dt_anoProducao" ColumnName="dt_anoProducao" />
+                <ScalarProperty Name="nm_tituloOriginal" ColumnName="nm_tituloOriginal" />
+                <ScalarProperty Name="nm_titulo" ColumnName="nm_titulo" />
+                <ScalarProperty Name="cod_filme" ColumnName="cod_filme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_genero">
+            <EntityTypeMapping TypeName="db_recomendeModel.tb_genero">
+              <MappingFragment StoreEntitySet="tb_genero">
+                <ScalarProperty Name="tp_genero" ColumnName="tp_genero" />
+                <ScalarProperty Name="id_genero" ColumnName="id_genero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_grupos">
+            <EntityTypeMapping TypeName="db_recomendeModel.tb_grupos">
+              <MappingFragment StoreEntitySet="tb_grupos">
+                <ScalarProperty Name="pontuacaoUsuario" ColumnName="pontuacaoUsuario" />
+                <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_noticias">
+            <EntityTypeMapping TypeName="db_recomendeModel.tb_noticias">
+              <MappingFragment StoreEntitySet="tb_noticias">
+                <ScalarProperty Name="data" ColumnName="data" />
+                <ScalarProperty Name="noticia" ColumnName="noticia" />
+                <ScalarProperty Name="titulo" ColumnName="titulo" />
+                <ScalarProperty Name="id_noticia" ColumnName="id_noticia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_recomendacoes">
+            <EntityTypeMapping TypeName="db_recomendeModel.tb_recomendacoes">
+              <MappingFragment StoreEntitySet="tb_recomendacoes">
+                <ScalarProperty Name="id_recomendacao" ColumnName="id_recomendacao" />
+                <ScalarProperty Name="cod_filme" ColumnName="cod_filme" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_usuario">
+            <EntityTypeMapping TypeName="db_recomendeModel.tb_usuario">
+              <MappingFragment StoreEntitySet="tb_usuario">
+                <ScalarProperty Name="tipo_usuario" ColumnName="tipo_usuario" />
+                <ScalarProperty Name="end_foto" ColumnName="end_foto" />
+                <ScalarProperty Name="id_grupo" ColumnName="id_grupo" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="nm_usuario" ColumnName="nm_usuario" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_usuarioXrecomendacoes">
+            <EntityTypeMapping TypeName="db_recomendeModel.tb_usuarioXrecomendacoes">
+              <MappingFragment StoreEntitySet="tb_usuarioXrecomendacoes">
+                <ScalarProperty Name="id_recomende" ColumnName="id_recomende" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_usuario_recom" ColumnName="id_usuario_recom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Bd_Recomende" ZoomLevel="83">
+        <EntityTypeShape EntityType="db_recomendeModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" Height="1.9802864583333317" />
+        <EntityTypeShape EntityType="db_recomendeModel.tb_comentario" Width="1.5" PointX="5.25" PointY="1.75" Height="2.1725878906249996" />
+        <EntityTypeShape EntityType="db_recomendeModel.tb_filme" Width="1.5" PointX="7.5" PointY="1" Height="3.7109993489583313" />
+        <EntityTypeShape EntityType="db_recomendeModel.tb_genero" Width="1.5" PointX="5.25" PointY="6.125" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="db_recomendeModel.tb_grupos" Width="1.5" PointX="0.75" PointY="2.125" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="db_recomendeModel.tb_noticias" Width="1.5" PointX="7.75" PointY="5.75" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="db_recomendeModel.tb_recomendacoes" Width="1.5" PointX="9.75" PointY="2" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="db_recomendeModel.tb_usuario" Width="1.5" PointX="3" PointY="1.375" Height="2.941793619791667" />
+        <EntityTypeShape EntityType="db_recomendeModel.tb_usuarioXrecomendacoes" Width="1.5" PointX="12" PointY="1.875" Height="1.9802864583333388" />
+        <AssociationConnector Association="db_recomendeModel.FK_tb_comentario_tb_usuario" >
+          <ConnectorPoint PointX="4.5" PointY="2.8362939453125" />
+          <ConnectorPoint PointX="5.25" PointY="2.8362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_recomendeModel.FK_tb_filme_tb_comentario" >
+          <ConnectorPoint PointX="6.75" PointY="2.8362939453125" />
+          <ConnectorPoint PointX="7.5" PointY="2.8362939453125" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_recomendeModel.FK_tb_filme_tb_genero" >
+          <ConnectorPoint PointX="6.75" PointY="7.6605843098958353" />
+          <ConnectorPoint PointX="7.59375" PointY="7.6605843098958353" />
+          <ConnectorPoint PointX="7.59375" PointY="4.7109993489583317" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_recomendeModel.FK_tb_recomendacoes_tb_filme" >
+          <ConnectorPoint PointX="9" PointY="2.8939925130208337" />
+          <ConnectorPoint PointX="9.75" PointY="2.8939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_recomendeModel.FK_tb_usuario_tb_grupos" >
+          <ConnectorPoint PointX="2.25" PointY="2.9228417968750016" />
+          <ConnectorPoint PointX="3" PointY="2.9228417968750016" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_recomendeModel.FK_tb_usuarioXrecomendacoes_tb_recomendacoes" >
+          <ConnectorPoint PointX="11.25" PointY="2.8939925130208337" />
+          <ConnectorPoint PointX="11.541666666666666" PointY="2.8939925130208333" />
+          <ConnectorPoint PointX="11.708333333333334" PointY="2.8939925130208337" />
+          <ConnectorPoint PointX="12" PointY="2.8939925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="db_recomendeModel.FK_tb_usuarioXrecomendacoes_tb_usuario" >
+          <ConnectorPoint PointX="3.75" PointY="4.3167936197916674" />
+          <ConnectorPoint PointX="3.75" PointY="4.9609993489583317" />
+          <ConnectorPoint PointX="7.510416666666667" PointY="4.9609993489583308" />
+          <ConnectorPoint PointX="7.677083333333333" PointY="4.9609993489583317" />
+          <ConnectorPoint PointX="11.625" PointY="4.9609993489583317" />
+          <ConnectorPoint PointX="11.625" PointY="2.3532442565104161" />
+          <ConnectorPoint PointX="12" PointY="2.3532442565104161" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
