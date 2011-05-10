@@ -1,0 +1,44 @@
+﻿body
+{
+	width: 1024px;
+}
+#Content
+{
+	width: 100%;
+	height: 700px;
+	background-color: Aqua;
+}
+#DadosUsuario
+{
+	float: left;
+	width: 100%;
+	height: 500px;
+}
+#opcoes
+{
+	width: 100%;
+	height: 30px;
+	float: left;
+	margin-left: 2px;
+	margin-right: 2px;
+	text-align: center;
+}
+#fotoPerfil
+{
+	height: 128px;
+	width: 100%;
+	float: left;
+}
+#listaRecomendacoes
+{
+	float: left;
+	height: 300px;
+	width: 35%;
+	background-color: Red;
+}
+#perguntasPerfil
+{
+	float:left;
+	width:100%;
+	height:200px;
+}

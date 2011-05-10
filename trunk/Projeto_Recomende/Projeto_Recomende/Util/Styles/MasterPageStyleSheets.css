@@ -1,0 +1,70 @@
+﻿body
+{
+	width: 1024px;
+	/*height: 195px;*/
+}
+#Header
+{
+	width:100%;
+	height:195px;
+	background-color:Green;
+}
+/*
+#Header
+{
+	width: 100%;
+	height: 194px;
+	float: left;
+	position: absolute;
+} */
+#HeaderTop
+{
+	width: 100%;
+	height: 70%;
+}
+#HeaderLeft
+{
+	width: 70%;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+#HeaderRight
+{
+	width: 30%;
+	height: 100%;
+	float: left;
+	position: relative;
+}
+.Login
+{
+	width: 100%;
+	height: 33.3%;
+}
+#HeaderLogo
+{
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+#HeaderBanner
+{
+	width: 70%;
+	height: 134px;
+	float: left;
+}
+
+#Menu
+{
+	height: 30%;
+	width: 100%;
+	float: left;
+	position: relative;
+	text-align: center; 
+}
+#Menu ul li
+{
+	display: inline;
+	margin-left: 5px;
+	margin-right: 5px;
+} 
