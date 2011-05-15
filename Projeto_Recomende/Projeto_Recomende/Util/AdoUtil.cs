@@ -12,7 +12,7 @@ namespace Projeto_Recomende.Util
 {
     public class AdoUtils
     {
-         private string strConnection;
+        private string strConnection;
         private SqlConnection conn;
         private SqlCommand cmd;
         private SqlDataAdapter adp;
@@ -33,9 +33,9 @@ namespace Projeto_Recomende.Util
             conn = new SqlConnection(strConnection);
             this.closeconnections = closeConnections;
         }
-             
 
-      
+
+
 
         /// <summary>
         /// Executa um comando que retorna uma tabela do banco de dados
@@ -48,17 +48,17 @@ namespace Projeto_Recomende.Util
             try
             {
                 dt = new DataTable();
-                cmd = new SqlCommand(query, conn);                
+                cmd = new SqlCommand(query, conn);
                 foreach (KeyValuePair<string, object> item in parameters)
                 {
                     cmd.Parameters.Add(new SqlParameter(item.Key, item.Value));
                 }
                 adp = new SqlDataAdapter(cmd);
-                if(conn.State != ConnectionState.Open)
+                if (conn.State != ConnectionState.Open)
                     conn.Open();
-                adp.Fill(dt);                
+                adp.Fill(dt);
                 return dt;
-            }            
+            }
             finally
             {
                 if (closeconnections)
@@ -87,7 +87,7 @@ namespace Projeto_Recomende.Util
                     conn.Open();
                 adp.Fill(dt);
                 return dt;
-            }                       
+            }
             finally
             {
                 if (closeconnections)
@@ -100,40 +100,7 @@ namespace Projeto_Recomende.Util
             }
         }
 
-        public bool SetCommand(string procedure, params KeyValuePair<string, object>[] parameters)
-        {
-            try
-            {
-                cmd = new SqlCommand(procedure, conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                foreach (KeyValuePair<string, object> item in parameters)
-                {
-                    cmd.Parameters.Add(new SqlParameter(item.Key, item.Value));
-                }
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-                if (cmd.ExecuteNonQuery() > 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }           
-            finally
-            {
-                if (closeconnections)
-                {
-                    if (conn.State != ConnectionState.Closed)
-                    {
-                        conn.Close();
-                    }
-                }
-            }
-        }
-
-        public bool SetCommand(string string_sql)
+        public bool ExecuteCommand(string string_sql)
         {
             try
             {
@@ -149,7 +116,6 @@ namespace Projeto_Recomende.Util
                     return false;
                 }
             }
-            
             finally
             {
                 if (closeconnections)
@@ -182,7 +148,7 @@ namespace Projeto_Recomende.Util
                     return false;
                 }
             }
-           
+
             finally
             {
                 if (closeconnections)
@@ -203,10 +169,10 @@ namespace Projeto_Recomende.Util
                 cmd = new SqlCommand(string_sql, conn);
 
                 if (conn.State != ConnectionState.Open)
-                    conn.Open();                
+                    conn.Open();
                 return cmd.ExecuteScalar();
             }
-           
+
             finally
             {
                 if (closeconnections)
@@ -232,7 +198,7 @@ namespace Projeto_Recomende.Util
                     conn.Open();
                 return cmd.ExecuteScalar();
             }
-             
+
             finally
             {
                 if (closeconnections)
