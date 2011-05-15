@@ -1439,6 +1439,8 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\AdoUtil.cs" />
+    <Compile Include="Util\Email.cs" />
+    <Compile Include="Util\ExtJSAjaxResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPageRecomende.Master" />
