@@ -17,25 +17,25 @@ namespace Projeto_Recomende
         //}
         //tb_usuario user = new tb_usuario();
 
-        //protected void bntLogar_Click(object sender, EventArgs e)
-        //{
-        //    var query = from user in entities.tb_usuario
-        //                where user.email == txtEmail.Text && user.senha == txtSenha.Text
-        //                select user;
+        protected void bntLogar_Click(object sender, EventArgs e)
+        {
+            //var query = from user in entities.tb_usuario
+            //            where user.email == txtEmail.Text && user.senha == txtSenha.Text
+            //            select user;
 
-        //    if (query.ToList<tb_usuario>().Count == 1)
-        //    {
-        //        user = query.ToList<tb_usuario>().ElementAt(0);
-        //        Session["usuario"] = user;
-        //       // Session["Email"] = query.ToList<tb_usuario>().ElementAt(0).email;
-        //       // Session["Senha"] = query.ToList<tb_usuario>().ElementAt(0).senha;
-        //        Response.Redirect("../Pages/PerfilUsuario.aspx");
-        //    }
-        //    else
-        //    {
-        //        lblMensagem.Text = "Email ou senha incorretos!";
-        //    }   
+            //if (query.ToList<tb_usuario>().Count == 1)
+            //{
+            //    user = query.ToList<tb_usuario>().ElementAt(0);
+            //    Session["usuario"] = user;
+            //    // Session["Email"] = query.ToList<tb_usuario>().ElementAt(0).email;
+            //    // Session["Senha"] = query.ToList<tb_usuario>().ElementAt(0).senha;
+            //    Response.Redirect("../Pages/PerfilUsuario.aspx");
+            //}
+            //else
+            //{
+            //    lblMensagem.Text = "Email ou senha incorretos!";
+            //}
 
-        //}
+        }
     }
 }
