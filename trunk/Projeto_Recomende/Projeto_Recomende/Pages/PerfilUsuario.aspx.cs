@@ -10,8 +10,8 @@ namespace Projeto_Recomende.Pages
 {
     public partial class PerfilUsuario : System.Web.UI.Page
     {
-        recomendeEntities entities = new recomendeEntities();
-        tb_usuario user = new tb_usuario();
+       // recomendeEntities entities = new recomendeEntities();
+        //tb_usuario user = new tb_usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,15 +21,15 @@ namespace Projeto_Recomende.Pages
             }
             if (ViewState["usuario"] != null)
             {
-                user = (tb_usuario)ViewState["usuario"];
+                //user = (tb_usuario)ViewState["usuario"];
 
-                var query = from usuario in entities.tb_usuario
-                            where usuario.id_usuario == user.id_usuario
-                            select usuario;
+                //var query = from usuario in entities.tb_usuario
+                //            where usuario.id_usuario == user.id_usuario
+                //            select usuario;
 
 
-                lblNome.Text = user.nm_usuario;
-                imgPerfil.ImageUrl = query.ToList<tb_usuario>().ElementAt(0).end_foto;
+                //lblNome.Text = user.nm_usuario;
+                //imgPerfil.ImageUrl = query.ToList<tb_usuario>().ElementAt(0).end_foto;
 
             }
            /* else
