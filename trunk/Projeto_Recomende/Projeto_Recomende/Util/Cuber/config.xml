@@ -27,6 +27,7 @@
 			<defaults type="7" />
 			<tweenOver tint="0xffffff" />
 		</next_symbol>	
+    
 		<auto_play>
 			<defaults symbol="linear" time="5" />
 			<tweenIn x="0" y="350" width="800" height="2" tint="0xFFFFFF" />

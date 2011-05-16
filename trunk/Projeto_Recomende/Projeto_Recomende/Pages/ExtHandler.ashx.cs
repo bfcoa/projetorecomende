@@ -13,7 +13,13 @@ namespace Projeto_Recomende.Pages
 
         public void ProcessRequest(HttpContext context)
         {
-            string titulo = context.Request.Params["txtTitulo"];
+            string acao = context.Request.Params["action"];
+            switch (acao)
+            {
+                case "postarNoticia":
+
+                    break;
+            }
         }
 
         public bool IsReusable
