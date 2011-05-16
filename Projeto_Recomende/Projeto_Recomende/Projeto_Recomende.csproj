@@ -63,6 +63,30 @@
     <Content Include="Pages\RecomendarFilmes.aspx" />
     <Content Include="Pages\SAC.aspx" />
     <Content Include="Pages\SessaoExpirou.aspx" />
+    <Content Include="Util\Cuber\config.xml" />
+    <Content Include="Util\Cuber\cu3er.swf" />
+    <Content Include="Util\Cuber\images\slide0.jpg" />
+    <Content Include="Util\Cuber\images\slide1.jpg" />
+    <Content Include="Util\Cuber\images\slide2.jpg" />
+    <Content Include="Util\Cuber\images\slide3.jpg" />
+    <Content Include="Util\Cuber\images\slide4.jpg" />
+    <Content Include="Util\Imagens\ImagensSite\bannerBg.png" />
+    <Content Include="Util\Imagens\ImagensSite\buttonBg.png" />
+    <Content Include="Util\Imagens\ImagensSite\contentBg.png" />
+    <Content Include="Util\Imagens\ImagensSite\crosslines.png" />
+    <Content Include="Util\Imagens\ImagensSite\footBg.png" />
+    <Content Include="Util\Imagens\ImagensSite\headBg.png" />
+    <Content Include="Util\Imagens\ImagensSite\icon1.png" />
+    <Content Include="Util\Imagens\ImagensSite\icon2.png" />
+    <Content Include="Util\Imagens\ImagensSite\icon3.png" />
+    <Content Include="Util\Imagens\ImagensSite\logo.png" />
+    <Content Include="Util\Imagens\ImagensSite\logohover.png" />
+    <Content Include="Util\Imagens\ImagensSite\pat.png" />
+    <Content Include="Util\Imagens\ImagensSite\searchbg.png" />
+    <Content Include="Util\Imagens\ImagensSite\searchbtn.png" />
+    <Content Include="Util\Imagens\ImagensSite\slideBg.png" />
+    <Content Include="Util\Imagens\ImagensSite\submitBtn.png" />
+    <Content Include="Util\Imagens\ImagensSite\tweet.png" />
     <Content Include="Util\Scrypts\AdmPage.js" />
     <Content Include="Util\Scrypts\ExtJS\adapter\ext\ext-base-debug.js" />
     <Content Include="Util\Scrypts\ExtJS\adapter\ext\ext-base.js" />
@@ -1341,6 +1365,8 @@
     <Content Include="Util\Scrypts\lightbox2.05\__MACOSX\js\._lightbox.js" />
     <Content Include="Util\Scrypts\lightbox2.05\__MACOSX\js\._prototype.js" />
     <Content Include="Util\Scrypts\lightbox2.05\__MACOSX\js\._scriptaculous.js" />
+    <Content Include="Util\Scrypts\swfobject\expressInstall.swf" />
+    <Content Include="Util\Scrypts\swfobject\swfobject.js" />
     <Content Include="Util\Styles\MasterPageStyleSheets.css" />
     <Content Include="Util\Styles\PagesStyleSheets.css" />
     <Content Include="Web.config" />
@@ -1461,6 +1487,7 @@
     <Folder Include="Util\Scrypts\ExtJS\src\ext-core\test\yui_2.6.0\yui\build\yuitest\assets\skins\sam\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Util\Cuber\config.xml_" />
     <None Include="Util\Scrypts\ExtJS\resources\images\access\form\clear-trigger.psd" />
     <None Include="Util\Scrypts\ExtJS\resources\images\access\form\date-trigger.psd" />
     <None Include="Util\Scrypts\ExtJS\resources\images\access\form\search-trigger.psd" />

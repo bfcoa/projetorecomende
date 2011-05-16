@@ -3,62 +3,87 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Recomende</title>
-    <link rel="stylesheet" type="text/css" href="Util/Styles/MasterPageStyleSheets.css" />
+<head id="Head1" runat="server">
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>MCUBE Solutions | CU3ER By Template World</title>
+    <link href="Util/Styles/MasterPageStyleSheets.css" rel="stylesheet" type="text/css"
+        media="all" />
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div id="Header">
-    <div id="HeaderTop">
-            <div id="HeaderLeft">
-                <div id="HeaderLogo">
-                    LOGOOO
-                </div>
-                <div id="HeaderBanner">
-                    BANER/PROPAGANDAS
-                </div>
-            </div>
-            <div id="HeaderRight">
-                <div class="Login">
-                    <asp:Label ID="lblEmail" runat="server" Text="E-mail: "></asp:Label>
-                    <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
-                </div>
-                    <div class="Login">
-                    <asp:Label ID="lblSenha" runat="server" Text="Senha: "></asp:Label>
-                    <asp:TextBox ID="txtSenha" runat="server"></asp:TextBox>
+    <form id="Form1" runat="server">
+    <div id="head">
+        <div id="head_cen">
+            <div id="head_sup" class="head_height">
+                <p class="search">
+                    <label>
+                        E-MAIL</label>
+                    <asp:TextBox ID="txtEmail" CssClass="txt" runat="server" ForeColor="White"></asp:TextBox>
+                    <label>
+                        SENHA</label>
+                    <asp:TextBox ID="txtSenha" CssClass="txt" runat="server" ForeColor="White" TextMode="Password"></asp:TextBox>
+                    <asp:Button ID="bntLogar" CssClass="btn" runat="server" Text="LOGAR" OnClick="bntLogar_Click" />
                     <asp:Label ID="lblMensagem" runat="server" ForeColor="Red"></asp:Label>
-                </div>
-                <div class="Login">
-                    <asp:Button ID="bntLogar" runat="server" Text="Logar" OnClick="bntLogar_Click" />
-                    <asp:HyperLink ID="hlCadastro" runat="server" NavigateUrl="Pages/CadastroUsuario.aspx"
-                        Text="Cadastre-se aqui!"></asp:HyperLink>
-                </div>
+                    <%--<asp:HyperLink ID="hlCadastro" runat="server" NavigateUrl="Pages/CadastroUsuario.aspx" Text="Cadastre-se aqui!"></asp:HyperLink>--%>
+                    <label style="margin-left: 90px">
+                        BUSCA</label>
+                    <input name="search" type="text" class="txt" />
+                    <input name="search-btn" type="submit" class="btn" value="PESQUISAR" />
+                </p>
+                <h1 class="logo">
+                </h1>
+                <%--Menus--%>
+                <ul>
+                    <li><a class="active" href="#">HOME</a></li>
+                    <li><a href="#">SOBRE</a></li>
+                    <li><a href="#">CONTATO</a></li>
+                    <li><a href="#">LOGIN</a></li>
+                    <li><a href="CadastroUsuario.aspx">CADASTRE-SE</a></li>
+                </ul>
+                <%--Fim dos Menus--%>
+                <asp:ContentPlaceHolder ID="cphBanner" runat="server">
+                </asp:ContentPlaceHolder>
             </div>
-        </div>
-        <div id="Menu">
-            <ul>
-                <li>
-                    <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="/Pages/Home.aspx" Text="Home"></asp:HyperLink></li>
-                <li style="margin-top: 0px">
-                    <asp:HyperLink ID="hlBusca" runat="server" NavigateUrl="/Pages/Buscarfilmes.aspx"
-                        Text="Busca"></asp:HyperLink></li>
-                <li>
-                    <asp:HyperLink ID="hlSAC" runat="server" NavigateUrl="/Pages/SAC.aspx" Text="SAC"></asp:HyperLink></li>
-                <li>
-                    <asp:HyperLink ID="hl4" runat="server" NavigateUrl="#" Text="Menu"></asp:HyperLink></li>
-            </ul>
         </div>
     </div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        </asp:ContentPlaceHolder>
-        <div id="Footer">
-            2011. Todos os direitos resevados.
+    <%--Conteudo Da Pagina--%>
+    <div id="content">
+        <div id="content_cen">
+            <div id="content_sup">
+                <div id="ct_pan">
+                    <asp:ContentPlaceHolder ID="cphBody" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div id="welcom_pan">
+                    <asp:ContentPlaceHolder ID="cphBodyDown" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
         </div>
-    </form> 
-        
-
+    </div>
+    <%--Fim Do COnteudo Da Pagina--%>
+    <%--Menu Inferior--%>
+    <div id="foot">
+        <div id="foot_cen">
+            <h6>
+                <a href="index.html">mcube</a></h6>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li class="space">|</li>
+                <li><a href="about.html">SOBRE</a></li>
+                <li class="space">|</li>
+                <li><a href="services.html">SERVICES</a></li>
+                <li class="space">|</li>
+                <li><a href="about.html">SOBRE</a></li>
+                <li class="space">|</li>
+                <li><a href="services.html">SERVICES</a></li>
+            </ul>
+            <p>
+                © RECOMENDE! . Designed by: <a href="http://danilos.com.br" target="_blank">D4nilos</a></p>
+        </div>
+    </div>
+    <%--Fim Do Menu Inferior--%>
+    </form>
 </body>
 </html>
