@@ -1352,11 +1352,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bd_Recomende.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Bd_Recomende.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MasterPageRecomende.Master.cs">
       <DependentUpon>MasterPageRecomende.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1464,12 +1459,6 @@
     <Folder Include="Util\Scrypts\ExtJS\src\ext-core\examples\tabs\images\" />
     <Folder Include="Util\Scrypts\ExtJS\src\ext-core\test\yui_2.6.0\yui\build\logger\assets\skins\sam\" />
     <Folder Include="Util\Scrypts\ExtJS\src\ext-core\test\yui_2.6.0\yui\build\yuitest\assets\skins\sam\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="Bd_Recomende.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Bd_Recomende.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="Util\Scrypts\ExtJS\resources\images\access\form\clear-trigger.psd" />
