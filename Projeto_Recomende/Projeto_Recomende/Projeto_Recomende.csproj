@@ -1378,6 +1378,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Codes\BLL\FilmeBll.cs" />
+    <Compile Include="Codes\BLL\NoticiaBll.cs" />
+    <Compile Include="Codes\BLL\UsuarioBll.cs" />
+    <Compile Include="Codes\DAO\FilmeDao.cs" />
+    <Compile Include="Codes\DAO\NoticiaDao.cs" />
+    <Compile Include="Codes\DAO\UsuarioDao.cs" />
+    <Compile Include="Codes\OBJ\Filme.cs" />
+    <Compile Include="Codes\OBJ\Noticia.cs" />
+    <Compile Include="Codes\OBJ\Usuario.cs" />
     <Compile Include="MasterPageRecomende.Master.cs">
       <DependentUpon>MasterPageRecomende.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1470,7 +1479,6 @@
     <Content Include="Pages\ExtHandler.ashx" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Codes\" />
     <Folder Include="Util\Imagens\ImagensFilmes\" />
     <Folder Include="Util\Imagens\ImagensUsuarios\" />
     <Folder Include="Util\Scrypts\ExtJS\resources\images\vista\dd\" />

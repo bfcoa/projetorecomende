@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.UI.HtmlControls;
 
 namespace Projeto_Recomende
 {
@@ -11,10 +12,14 @@ namespace Projeto_Recomende
     {
         //recomendeEntities entities = new recomendeEntities();
 
-        //protected void Page_Load(object sender, EventArgs e)
-        //{
-
-        //}
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            
+            //servira para incluir na pagina se o usu´pario for Admin
+            //HtmlGenericControl admControl = new HtmlGenericControl("li");
+            //admControl.InnerHtml = "<a href=\"#\" style=\"color:Red \">ADM</a>";                          
+            //menuSuperior.Controls.Add(admControl);
+        }
         //tb_usuario user = new tb_usuario();
 
         protected void bntLogar_Click(object sender, EventArgs e)
