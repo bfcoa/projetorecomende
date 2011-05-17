@@ -31,7 +31,7 @@ namespace Projeto_Recomende.Codes.DAO
             List<Noticia> listNoticias = null;
             try
             {
-                string query = "SELECT * FROM tb_noticias ORDER BY id_noticia DESC";
+                string query = "SELECT TOP 15 * FROM tb_noticias ORDER BY id_noticia DESC";
                 AdoUtils ado = new AdoUtils();
                 DataTable dt = ado.GetDataTable(query);
 

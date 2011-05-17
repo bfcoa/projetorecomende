@@ -20,8 +20,8 @@ namespace Projeto_Recomende.Pages
             foreach (Noticia nova in noticias)
             {
                 HtmlGenericControl novaNoticia = new HtmlGenericControl();
-                string divNoticia = "<div  style=\"width:520px; margin-left:auto; margin-right:auto; font-family:Bernard MT Condensed; font-style:italic;color:#00688B; font-size:x-large; height:30px; background-color:#D3D3D3; text-align:center; padding-top:10px\">" + nova.titulo + "</div>" +
-                    "<div style=\" width:500px; margin-left:auto; margin-right:auto; background-color:#EEEEE0; font-size:medium; padding:10px\">" + nova.noticia + "</div>";
+                string divNoticia = "<div  style=\"width:520px; margin-left:auto; margin-right:auto; font-family:Bernard MT Condensed; font-style:italic;color:#252525; font-size:x-large; height:30px; background-color:#D3D3D3; text-align:center; padding-top:10px\">" + nova.titulo + "</div>" +
+                    "<div style=\" width:500px; margin-left:auto; margin-right:auto; margin-bottom:10px; background-color:#EEEEE0; font-size:medium; padding:10px\">" + nova.noticia + "</div>";
                 novaNoticia.InnerHtml = divNoticia;
                 Noticias.Controls.Add(novaNoticia);                          
             }
