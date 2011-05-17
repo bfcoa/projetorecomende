@@ -5,6 +5,7 @@ using System.Web;
 using Projeto_Recomende.Codes.BLL;
 using Projeto_Recomende.Util;
 
+
 namespace Projeto_Recomende.Pages
 {
     /// <summary>
@@ -13,9 +14,9 @@ namespace Projeto_Recomende.Pages
     public class ExtHandler : IHttpHandler
     {
         
-
+        
         public void ProcessRequest(HttpContext context)
-        {            
+        {
             
             ExtJSAjaxResponse res;
             System.Web.Script.Serialization.JavaScriptSerializer jss = new System.Web.Script.Serialization.JavaScriptSerializer();
