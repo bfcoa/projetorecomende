@@ -29,7 +29,7 @@ namespace Projeto_Recomende.Util
 
         public AdoUtils(bool closeConnections)
         {
-            strConnection = ConfigurationManager.ConnectionStrings["user"].ConnectionString;
+            strConnection = ConfigurationManager.ConnectionStrings["conexao"].ConnectionString;
             conn = new SqlConnection(strConnection);
             this.closeconnections = closeConnections;
         }

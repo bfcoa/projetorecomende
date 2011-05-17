@@ -8,9 +8,10 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBody" runat="server">
-    cphBody
-</asp:Content>
-
-<asp:Content ID="Content4" ContentPlaceHolderID="cphBodyDown" runat="server">
-    cphBodyDown
+    <div id="Noticias" runat="server" style="margin-top:20px; padding-bottom:20px">
+        <%--<div id="Titulo" style="width:520px; margin-left:auto; margin-right:auto; font-family:Bernard MT Condensed; font-style:italic;color:#00688B; font-size:x-large; height:30px; background-color:#D3D3D3; text-align:center; padding-top:10px">
+        </div>
+        <div id="CorpoNoticia" style=" width:500px; margin-left:auto; margin-right:auto; background-color:#EEEEE0; font-size:medium; padding:10px">            
+        </div>--%>
+    </div>
 </asp:Content>
