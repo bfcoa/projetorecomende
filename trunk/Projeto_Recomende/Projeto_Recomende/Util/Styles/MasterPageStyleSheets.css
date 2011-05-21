@@ -31,7 +31,7 @@ img.ban_bg									{width:auto; float:left; position:absolute; top:139px; left:-
 #content									{width:100%; padding-bottom:36px; float:left; background:#ffffff url(../Imagens/ImagensSite/contentBg.png) repeat-x}
 #content_cen								{width:800px; margin:0 auto}
 #content_sup								{width:800px; float:left; position:relative}
-#ct_pan										{width:100%; height:auto; margin-top:94px; float:left; position:relative; font-family:Tahoma, Geneva, sans-serif; font-size:12px; color:Black; line-height:16px; background:#696969; padding: 10px;}
+#ct_pan										{width:90%; height:auto; margin-top:94px; margin-left:auto; margin-right:auto; position:relative; font-family:Tahoma, Geneva, sans-serif; font-size:12px; color:Black; line-height:16px; background:#696969; padding: 10px;}
 #ct_pan p									{width:312px; margin:34px 52px 0 34px; float:left}
 #ct_pan p a									{color:#31a1ff; text-transform:uppercase}
 #ct_pan ul									{width:195px; margin-top:26px; float:left}
