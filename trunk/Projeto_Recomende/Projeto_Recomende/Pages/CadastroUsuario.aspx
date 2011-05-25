@@ -21,7 +21,7 @@
         </div>
          <div>
             <asp:Label ID="lblSenha" runat="server" Text="Senha:"></asp:Label>
-            <asp:TextBox ID ="txtSenha" runat="server" ></asp:TextBox>
+            <asp:TextBox ID ="txtSenha" runat="server" Height="20px" Width="124px" ></asp:TextBox>
         </div>
         <div>
             <asp:Label ID="lblConfirmaSenha" runat="server" Text="Confirmação de senha:"></asp:Label>
