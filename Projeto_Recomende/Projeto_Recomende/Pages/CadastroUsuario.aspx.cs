@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.IO;
 using System.Web.UI.WebControls;
+using Projeto_Recomende.Codes.OBJ;
+using Projeto_Recomende.Codes.BLL;
 
 namespace Projeto_Recomende.Pages
 {
@@ -12,7 +14,9 @@ namespace Projeto_Recomende.Pages
     {
         //recomendeEntities entities = new recomendeEntities();
         //tb_usuario usuario = new tb_usuario();
-        
+        Usuario user;
+        UsuarioBll userBll;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["User"] != null)
@@ -20,44 +24,38 @@ namespace Projeto_Recomende.Pages
                 ViewState["usuario"] = Session["User"];
                 Session.Remove("User");
             }
-
         }
+
 
         protected void bntConfirma_Click(object sender, EventArgs e)
         {
 
-            //if (txtNome.Text != string.Empty && txtEmail.Text != string.Empty && txtSenha.Text != string.Empty)
-            //{
-            //    var query = from user in entities.tb_usuario
-            //                where user.email == txtEmail.Text
-            //                select user;
+            try
+            {
+                userBll = new UsuarioBll();
+                user = new Usuario();
+                user.nm_usuario = txtNome.Text;
+                user.senha = txtSenha.Text;
+                user.email = txtEmail.Text;
+                user.end_foto = Server.MapPath(@"../Util/ImagensUsuarios/" + fuFotoPerfil.FileName);
+                bool fotoValida = userBll.verificaFoto(user);
 
-            //    if (query.ToList<tb_usuario>().Count != 1)
-            //    {
-            //        usuario.nm_usuario = txtNome.Text;
-            //        usuario.email = txtEmail.Text;
-            //        usuario.senha = txtSenha.Text;
-            //        string caminho = Server.MapPath(@"/Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName);
-            //    //    string caminho = @"/Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName;
-            //        //if (!File.Exists(caminho))
-            //        //{
-            //        usuario.end_foto = (@"/Util/Images/ImagensUsuarios/" + fuFotoPerfil.FileName);
-            //        fuFotoPerfil.SaveAs(caminho);
-            //        //}
+                if (fotoValida)
+                {
+                    fuFotoPerfil.SaveAs(Server.MapPath(@"../Util/ImagensUsuarios/" + fuFotoPerfil.FileName));
+                    string path = Server.MapPath(@"../Util/ImagensUsuarios/" + fuFotoPerfil.FileName);
 
+                    userBll.CadastrarUsuario(fotoValida, user);
+                    File.Move(path, Server.MapPath(@"../Util/ImagensUsuarios/" + user.id_usuario));
+                    Response.Redirect("PerfilUsuario.aspx");
+                }
+                throw new Exception();
 
-            //        entities.tb_usuario.AddObject(usuario);
-            //        entities.SaveChanges(System.Data.Objects.SaveOptions.AcceptAllChangesAfterSave);
-
-            //        Session["usuario"] = usuario;
-            //        Response.Redirect("PerfilUsuario.aspx");
-            //    }
-            //    else
-            //    {
-            //        lblMensagem.Text = "Email já cadastrado!";
-            //    }             
-
-         //   }
+            }
+            catch (Exception)
+            {
+                lblMensagem.Text = "Usuario Invalido!";
+            }
         }
     }
 }
