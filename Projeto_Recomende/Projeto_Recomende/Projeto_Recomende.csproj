@@ -300,7 +300,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Util\Cuber\config.xml_" />
-    <None Include="Util\Scrypts\jquery\extensao\themes\base\images\Thumbs.db" />
     <None Include="Util\Scrypts\lightbox2.05\js\.DS_Store" />
     <None Include="Util\Scrypts\lightbox2.05\__MACOSX\._js" />
     <None Include="Util\Scrypts\lightbox2.05\__MACOSX\js\._.DS_Store" />
