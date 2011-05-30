@@ -16,9 +16,9 @@ namespace Projeto_Recomende
         {
 
             //servira para incluir na pagina se o usu´pario for Admin
-            HtmlGenericControl admControl = new HtmlGenericControl("li");
-            admControl.InnerHtml = "<a href=\"#\" style=\"color:Red \" onClick=\"clickAdm()\">ADM</a>";
-            menuSuperior.Controls.Add(admControl);
+            //HtmlGenericControl admControl = new HtmlGenericControl("li");
+            //admControl.InnerHtml = "<a href=\"#\" style=\"color:Red \" onClick=\"clickAdm()\">ADM</a>";
+            //menuSuperior.Controls.Add(admControl);
         }
         //tb_usuario user = new tb_usuario();
 
