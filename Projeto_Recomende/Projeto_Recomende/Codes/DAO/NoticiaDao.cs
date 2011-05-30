@@ -10,20 +10,19 @@ namespace Projeto_Recomende.Codes.DAO
 {
     public class NoticiaDao
     {
-        public bool CadastrarNoticia(string titulo, string noticia, DateTime data, int id_usuario)
+        public bool CadastrarNoticia(Noticia noticia)
         {
 
             AdoUtils ado = new AdoUtils();
-            string query = "INSERT INTO tb_noticias (titulo, noticia, data, id_usuario) "+
+            string query = "INSERT INTO tb_noticias (titulo, noticia, data, id_usuario) " +
                            "VALUES (@titulo, @noticia, @data, @id_usuario);";
             List<KeyValuePair<string, object>> parametros = new List<KeyValuePair<string, object>>();
-            parametros.Add(new KeyValuePair<string, object>("@titulo", titulo));
-            parametros.Add(new KeyValuePair<string, object>("@noticia", noticia));
-            parametros.Add(new KeyValuePair<string, object>("@data", data));
-            parametros.Add(new KeyValuePair<string, object>("@id_usuario", id_usuario));
+            parametros.Add(new KeyValuePair<string, object>("@titulo", noticia.titulo));
+            parametros.Add(new KeyValuePair<string, object>("@noticia", noticia.noticia));
+            parametros.Add(new KeyValuePair<string, object>("@data", noticia.data));
+            parametros.Add(new KeyValuePair<string, object>("@id_usuario", noticia.id_usuario));
 
-            return ado.ExecuteCommand(query, parametros.ToArray());                         
-            
+            return ado.ExecuteCommand(query, parametros.ToArray());                                     
             }
 
         public List<Noticia> LoadNoticias()

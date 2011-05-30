@@ -18,19 +18,19 @@ namespace Projeto_Recomende.Pages
         public void ProcessRequest(HttpContext context)
         {
             
-            ExtJSAjaxResponse res;
-            System.Web.Script.Serialization.JavaScriptSerializer jss = new System.Web.Script.Serialization.JavaScriptSerializer();
-            string acao = context.Request.Params["action"];
+            //ExtJSAjaxResponse res;
+            //System.Web.Script.Serialization.JavaScriptSerializer jss = new System.Web.Script.Serialization.JavaScriptSerializer();
+            //string acao = context.Request.Params["action"];
             
-            switch (acao)
-            {
-                case "PostarNoticia":
-                    NoticiaBll bll = new NoticiaBll();
-                    res = (ExtJSAjaxResponse) bll.PostarNoticia(context);
-                    context.Response.Write(jss.Serialize(res));
-                    context.Response.End();
-                    break;
-            }
+            //switch (acao)
+            //{
+            //    case "PostarNoticia":
+            //        NoticiaBll bll = new NoticiaBll();
+            //        res = (ExtJSAjaxResponse) bll.PostarNoticia(context);
+            //        context.Response.Write(jss.Serialize(res));
+            //        context.Response.End();
+            //        break;
+            //}
         }
 
         public bool IsReusable

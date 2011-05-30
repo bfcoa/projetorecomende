@@ -56,8 +56,11 @@
     </div>
     <%--Conteudo Da Pagina--%>
     <div id="content">
+    
         <div id="content_cen">
+        
             <div id="content_sup">
+            
                 <div id="ct_pan">
                     <asp:ContentPlaceHolder ID="cphBody" runat="server">
                     </asp:ContentPlaceHolder>
@@ -77,7 +80,7 @@
                 <a href="index.html">mcube</a>
             </h6>
             <ul>
-                <li><a href="index.html">HOME</a></li>
+                <li><a href="Pages/Home.aspx">HOME</a></li>
                 <li class="space">|</li>
                 <li><a href="about.html">SOBRE</a></li>
                 <li class="space">|</li>

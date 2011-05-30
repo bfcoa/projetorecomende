@@ -11,22 +11,30 @@ namespace Projeto_Recomende.Codes.BLL
 {
     public class NoticiaBll
     {
-        public object PostarNoticia(HttpContext Context)
+        public object PostarNoticia(string titulo, string noticia)
         {
             ExtJSAjaxResponse res = new ExtJSAjaxResponse();
             try
             {
-                string titulo = Context.Request.Params["txtTitulo"];
-                string noticia = Context.Request.Params["txtCorpo"];
+                
                 
                 if (string.IsNullOrEmpty(titulo))
                     new Exception("Titulo não pode ser vazio");
                 if (string.IsNullOrEmpty(noticia))
                     new Exception("Noticia não pode estar vazia");
+                
+                //montando o objto noticia
+                Noticia nova = new Noticia();
+                nova.titulo = titulo;
+                nova.noticia = noticia;
+                nova.data = DateTime.Now;
+                nova.id_usuario = 1;
+
                 NoticiaDao dao = new NoticiaDao();
-                res.success = dao.CadastrarNoticia(titulo, noticia, DateTime.Now, 1);
+                res.success = dao.CadastrarNoticia(nova);
                 if(!res.success)
                     res.message = "Noticia não pode ser cadastrada!<br/> Tente Novamente!";
+            
             }catch(Exception Ex){
                 res.errors = 1;
                 res.success = false;
