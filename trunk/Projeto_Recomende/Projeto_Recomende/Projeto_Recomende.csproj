@@ -1372,7 +1372,9 @@
     <Content Include="Util\Scrypts\swfobject\swfobject.js" />
     <Content Include="Util\Styles\MasterPageStyleSheets.css" />
     <Content Include="Util\Styles\PagesStyleSheets.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
