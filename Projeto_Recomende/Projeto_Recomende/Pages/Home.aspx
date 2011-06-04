@@ -34,7 +34,7 @@
             </asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
+                    <asp:GridView BackColor="White" ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False"
                         DataSourceID="SqlDataSource1" PageSize="5">
                         <Columns>
                             <asp:BoundField DataField="Column1" HeaderText="Noticias:" HtmlEncode="False" HtmlEncodeFormatString="False"
