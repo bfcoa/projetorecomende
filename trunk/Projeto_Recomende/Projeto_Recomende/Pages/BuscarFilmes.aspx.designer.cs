@@ -40,39 +40,48 @@ namespace Projeto_Recomende.Pages {
         protected global::System.Web.UI.WebControls.Label lblMensagem;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtAtor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtAtor;
         
         /// <summary>
-        /// TextBox2 control.
+        /// dplGenero control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TextBox2;
+        protected global::System.Web.UI.WebControls.DropDownList dplGenero;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// dplOrdem control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList dplOrdem;
         
         /// <summary>
-        /// CheckBox1 control.
+        /// chkDesabilitarFiltroPerfil control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
+        protected global::System.Web.UI.WebControls.CheckBox chkDesabilitarFiltroPerfil;
+        
+        /// <summary>
+        /// divFilmesResult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFilmesResult;
     }
 }
