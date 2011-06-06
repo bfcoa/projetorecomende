@@ -78,7 +78,7 @@
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>">
                     </asp:SqlDataSource>
                     <asp:GridView BackColor="White" ID="GridView1" runat="server" AllowPaging="True"
-                        PageSize="5" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnPageIndexChanged="bntBuscar_Click"
+                        PageSize="5" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnPageIndexChanged="GridView1_PageIndexChanged"
                         PagerSettings-Mode="NumericFirstLast">
                         <Columns>
                             <asp:BoundField DataField="trFilme" HtmlEncode="false" HtmlEncodeFormatString="false" HeaderText="Resultados Da Sua Busca:" SortExpression="trFilme" />

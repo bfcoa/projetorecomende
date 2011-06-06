@@ -18,7 +18,21 @@ namespace Projeto_Recomende.Pages
 
         protected void GridView1_PageIndexChanged(object sender, EventArgs e)
         {
-            
+            FilmeBll bll = new FilmeBll();
+            string query = bll.BuscarFilmes(txtFilme.Text, txtAtor.Text, int.Parse(dplGenero.SelectedItem.Value), dplOrdem.SelectedIndex);
+            if (!string.IsNullOrEmpty(query))
+            {
+                SqlDataSource1.SelectCommand = query;
+                SqlDataSource1.DataBind();
+                GridView1.DataBind();
+                lblMensagem.Text = "";
+                lblMensagem.Visible = false;
+            }
+            else
+            {
+                lblMensagem.Text = "Por favor, insira o titulo do filme que deseja buscar";
+                lblMensagem.Visible = true;
+            }
         }
 
         protected void bntBuscar_Click(object sender, EventArgs e)
