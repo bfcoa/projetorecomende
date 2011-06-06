@@ -1,7 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageRecomende.Master" AutoEventWireup="true"
     CodeBehind="SAC.aspx.cs" Inherits="Projeto_Recomende.Pages.SAC" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<script type="text/javascript">
+
+function limpa() {
+if(document.getElementById('email').value=="")
+document.getElementById('email').value="Prrencha aqui seu e-mail";
+
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBanner" runat="server">
 </asp:Content>
@@ -9,20 +15,16 @@
     <div id="welcom_pan">
         <div class="rgtWrap">
             <h3>
-                <span>RECOMENDE!</span> Entre em contato conosco!
+                <span>RECOMENDE!</span>&nbsp;&nbsp; Entre em contato conosco!
             </h3>
-            <p>Dúvidas, críticas ou sugestões? Preencha o Formulário abaixo para conversarmos à respeito!
+            <p> Dúvidas, críticas ou sugestões? <br /> Preencha o Formulário abaixo para conversarmos à respeito
             </p>
-            <input name="name" type="text" class="txt" value="Name">
-            <input name="id" type="text" class="txt" value="Email-ID">
-            <input name="submit" type="submit" class="btn" value="submit">
+            <asp:TextBox name="name" class="txt" ID="tbxNome" runat="server" Text="Nome" onfocus="this.value='';"></asp:TextBox>
+            <asp:TextBox name="email" class="txt" ID="tbxEMail" runat="server" Text="E-Mail" onfocus="this.value='';"></asp:TextBox><br />
+            <asp:TextBox class="txt" ID="tbxMensagem" runat="server" Height="208px" 
+                TextMode="MultiLine" Width="403px" Text="Digite aqui sua mensagem" onfocus="this.value='';"></asp:TextBox><br />
+            <asp:Button name="submit" class="btn" ID="btnEnviar" runat="server" Text="Enviar!" />
         </div>
-        <p>
-            Aliquam ut ipsum non mi vehicula fringilla. Fusce ac risus eget felis mollis cursus
-            eu eu mi. Ut vulputate adipiscing mauris, ac tincidunt enim tristique id. Integer
-            eget turpis nunc. Ut ut diam urna. Duis gravida vehicula sem malesuada laoreet.
-            In hac habitasse platea dictumst. Praesent eget dui ornare mauris auctor pellentesque.
-            Vivamus non eros quis mi venenatis sollicitudin.</p>
     </div>
     <!-- 
     <div id="Noticias" runat="server" style="margin-top:20px; padding-bottom:20px">
