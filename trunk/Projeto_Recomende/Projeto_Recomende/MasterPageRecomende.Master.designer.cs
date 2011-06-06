@@ -85,15 +85,6 @@ namespace Projeto_Recomende {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl menuSuperior;
         
         /// <summary>
-        /// cphBanner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder cphBanner;
-        
-        /// <summary>
         /// cphBody control.
         /// </summary>
         /// <remarks>
