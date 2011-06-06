@@ -13,7 +13,7 @@ namespace Projeto_Recomende.Codes.BLL
         public string BuscarFilmes(string nomeFilme, string ator, int genero, int ordenarPor)
         {
             string query = "";
-            if (!string.IsNullOrEmpty(nomeFilme))
+            if (!string.IsNullOrEmpty(nomeFilme.Trim()) || !string.IsNullOrEmpty(ator.Trim()))
             {
                 try
                 {
@@ -46,7 +46,7 @@ namespace Projeto_Recomende.Codes.BLL
                     string orderBy = "";
 
                     if (!string.IsNullOrEmpty(nomeFilme))
-                        where += " (f.nm_titulo LIKE '%" + nomeFilme + "%' OR f.nm_tituloOriginal LIKE '%" + nomeFilme + "%') ";
+                        where += " (f.nm_titulo LIKE '" + nomeFilme + "%') ";
                     if (!string.IsNullOrEmpty(ator))
                         where += " AND f.elenco LIKE '%" + ator + "%'";
                     if (genero != 1)
@@ -68,6 +68,9 @@ namespace Projeto_Recomende.Codes.BLL
                                 orderBy += "ORDER BY f.nm_titulo DESC;";
                                 break;
                         }
+                    }
+                    if(where.Contains("WHERE  AND")){
+                        where = where.Replace("WHERE  AND", "WHERE");
                     }
 
                     FilmeDao dao = new FilmeDao();
