@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Net.Mail;
+using System.Configuration;
 
 namespace Projeto_Recomende.Util
 {
     public class Email
     {
-        public bool EnviarEmail(string SMTP, string De, string Senha, string Para, string ParaC, string ParaCC, string Anexos, string Assunto, string Corpo, bool HTML, MailPriority MP)
+        public bool EnviarEmail(string Para, string ParaC, string ParaCC, string ReplyTo, string Anexos, string Assunto, string Corpo, bool HTML, MailPriority MP)
         {
+            string SMTP = ConfigurationManager.AppSettings["smtp"];
+            string De = ConfigurationManager.AppSettings["emailSender"];
+            string Senha = ConfigurationManager.AppSettings["emailPass"];
+                
             try
             {
                 int I = 0;
@@ -17,13 +22,14 @@ namespace Projeto_Recomende.Util
                 MailMessage Mensagem = new MailMessage();
                 SmtpClient mSmtpCliente = new SmtpClient(SMTP);
 
+                Mensagem.ReplyTo = new MailAddress(ReplyTo);
                 Mensagem.From = new MailAddress(De);
                 Array = Para.Split(';');
                 for (I = 0; I < Array.Length; I++)
                 {
                     Mensagem.To.Add(new MailAddress(Array[I]));
                 }
-                if (ParaC != null)
+                if (!string.IsNullOrEmpty(ParaC))
                 {
                     Array = ParaC.Split(';');
                     for (I = 0; I < Array.Length; I++)
@@ -31,7 +37,7 @@ namespace Projeto_Recomende.Util
                         Mensagem.Bcc.Add(new MailAddress(Array[I]));
                     }
                 }
-                if (ParaCC != null)
+                if (!string.IsNullOrEmpty(ParaCC))
                 {
                     Array = ParaCC.Split(';');
                     for (I = 0; I <= Array.Length; I++)
@@ -39,7 +45,7 @@ namespace Projeto_Recomende.Util
                         Mensagem.CC.Add(new MailAddress(Array[I]));
                     }
                 }
-                if (Anexos != null)
+                if (!string.IsNullOrEmpty(Anexos))
                 {
                     Array = Anexos.Split(';');
                     for (I = 0; I <= Array.Length; I++)
@@ -54,7 +60,7 @@ namespace Projeto_Recomende.Util
                 mSmtpCliente.Credentials = new System.Net.NetworkCredential(De, Senha);
                 mSmtpCliente.Send(Mensagem);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
