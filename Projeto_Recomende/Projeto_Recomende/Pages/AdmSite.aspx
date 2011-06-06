@@ -3,7 +3,19 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <script src="../Util/Scrypts/jquery-1.5.2.min.js" type="text/javascript"></script>
+    <style type="text/css">
+    #PostarNoticia
+    {
+        color:Black;    
+        font-weight:bold;
+        background-color: #A9A9A9;
+        padding: 5px;
+    }    
+    #titulo
+    {
+        margin-bottom:20px;
+    }
+    </style>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBanner" runat="server">
@@ -17,10 +29,19 @@
     
     <asp:UpdatePanel runat="server">
     <ContentTemplate>
+        <div id="PostarNoticia">
+        
+        <center>
+        <div id="titulo">
+        <label>Titulo:</label>        
+        <asp:TextBox ID="txtTitulo" Width="250" runat="server"></asp:TextBox><br />
+        </div>
         <cc1:Editor ID="Editor1" runat="server" />
-        <center><br />
+        
+        <br />
             <asp:Button ID="Button1" runat="server" CssClass="btn" Text="POSTAR" onclick="Button1_Click" /> 
         </center>
+        </div>
     </ContentTemplate>    
     </asp:UpdatePanel>    
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageRecomende.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageRecomende.Master" AutoEventWireup="True"
     CodeBehind="BuscarFilmes.aspx.cs" Inherits="Projeto_Recomende.Pages.BuscarFilmes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -8,19 +8,21 @@
 {    
     color:Black;    
     font-weight:bold;
-    background-color: #A9A9A9;
+    background-color: #8B8989;
     padding: 5px;
 }
 #filtroAvancadoConteudo
 {
     margin-left:auto;
-    margin-right:auto;    
+    margin-right:auto; 
+    width:270px;       
+    text-align:right;
 }
 #filtro
 {
-color:White;
+color:Black;
 font-weight:bold;
-background-color: #8B8989;
+background-color: #A9A9A9;
 width: 500px;
 margin-left: auto;
 margin-right: auto;
@@ -40,7 +42,7 @@ padding: 5px;
             <div id="filtro">
                 <div>
                     <label> NOME DO FILME</label>
-                    <asp:TextBox ID="txtFilme" Width="120" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtFilme"  Width="120" runat="server"></asp:TextBox>
                     <asp:Button ID="bntBuscar" runat="server" CssClass="btn" Text="Buscar Filme" OnClick="bntBuscar_Click" />
                     <br /><asp:Label ID="lblMensagem" runat="server" ForeColor="Red"></asp:Label>
                 </div>
@@ -48,11 +50,11 @@ padding: 5px;
                 <div id="filtroAvancado">                
                     <div id="filtroAvancadoConteudo">
                         <label>Ator:</label>
-                        <asp:TextBox ID="txtAtor" Width="200" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtAtor" Width="170" runat="server"></asp:TextBox>
                         <br />
                         <br />
                         <label> Gênero:</label>
-                        <asp:DropDownList ID="dplGenero" Width="200" runat="server">
+                        <asp:DropDownList ID="dplGenero" Width="170" runat="server">
                             <asp:ListItem Value="1">Nenhum</asp:ListItem>
                             <asp:ListItem Value="2">Ação e Aventura</asp:ListItem>
                             <asp:ListItem Value="3">Animação</asp:ListItem>
@@ -94,7 +96,7 @@ padding: 5px;
                 </div>
             </div>
             <center>
-                <div id="divFilmesResult" runat="server" visible="true" style="padding: 5px; background-color: White;
+                <div id="divFilmesResult" runat="server" visible="false" style="padding: 5px; background-color: White;
                     margin-top: 10px; clear: both">
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>">
                     </asp:SqlDataSource>
