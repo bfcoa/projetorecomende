@@ -138,7 +138,9 @@ namespace Projeto_Recomende.Util
                     cmd.Parameters.Add(new SqlParameter(item.Key, item.Value));
                 }
                 if (conn.State != ConnectionState.Open)
+                {
                     conn.Open();
+                }
                 if (cmd.ExecuteNonQuery() > 0)
                 {
                     return true;

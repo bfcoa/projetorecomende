@@ -16,6 +16,7 @@ namespace Projeto_Recomende.Pages
         //tb_usuario usuario = new tb_usuario();
         Usuario user;
         UsuarioBll userBll;
+        public string path = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,27 +35,35 @@ namespace Projeto_Recomende.Pages
             {
                 userBll = new UsuarioBll();
                 user = new Usuario();
+
                 user.nm_usuario = txtNome.Text;
                 user.senha = txtSenha.Text;
                 user.email = txtEmail.Text;
-                user.end_foto = Server.MapPath(@"../Util/ImagensUsuarios/" + fuFotoPerfil.FileName);
+                user.end_foto = @"../Util/Imagens/ImagensUsuarios/" + fuFotoPerfil.FileName;
+                user.tipo_usuario = "usuario";
                 bool fotoValida = userBll.verificaFoto(user);
 
                 if (fotoValida)
                 {
-                    fuFotoPerfil.SaveAs(Server.MapPath(@"../Util/ImagensUsuarios/" + fuFotoPerfil.FileName));
-                    string path = Server.MapPath(@"../Util/ImagensUsuarios/" + fuFotoPerfil.FileName);
+                    fuFotoPerfil.SaveAs(Server.MapPath(@"../Util/Imagens/ImagensUsuarios/" + fuFotoPerfil.FileName ));
+                    path = @"../Util/Imagens/ImagensUsuarios/" + fuFotoPerfil.FileName;
 
-                    userBll.CadastrarUsuario(fotoValida, user);
-                    File.Move(path, Server.MapPath(@"../Util/ImagensUsuarios/" + user.id_usuario));
-                    Response.Redirect("PerfilUsuario.aspx");
+                    lblMensagem.Text  =  userBll.CadastrarUsuario(fotoValida, user);
+                    File.Move(Server.MapPath(path), Server.MapPath(@"../Util/Imagens/ImagensUsuarios/" + user.id_usuario + userBll.Extencao));
+                    bool fotoAtualizada = userBll.updateFoto(user);
                 }
-                throw new Exception();
+                //throw new Exception();
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 lblMensagem.Text = "Usuario Invalido!";
+            }
+
+            if (lblMensagem.Text != "Usuario Invalido!")
+            {
+                Session["usuario"] = user;
+                Response.Redirect("~/Pages/PerfilUsuario.aspx");
             }
         }
     }
