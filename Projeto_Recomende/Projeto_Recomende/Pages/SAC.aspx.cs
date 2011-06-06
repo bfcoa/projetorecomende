@@ -24,18 +24,18 @@ namespace Projeto_Recomende.Pages
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            if (tbxNome.Text != string.Empty && tbxEMail.Text != string.Empty && tbxMensagem.Text != string.Empty && tbxAssunto.Text != string.Empty)
+            if (tbxNome.Text != string.Empty && tbxEMail.Text != string.Empty && tbxMensagem.Text != string.Empty && ddlAssunto.SelectedValue != string.Empty)
             {
                 Email objEmail = new Email();
                 
                 objEmail.EnviarEmail(ConfigurationManager.AppSettings["emailReceiver"],
-                    "", "", tbxEMail.Text, "", "Contato Recomende:" + tbxAssunto.Text.Trim(), tbxMensagem.Text, false,
+                    "", "", tbxEMail.Text, "", "Contato Recomende: " + ddlAssunto.SelectedValue.Trim(), tbxMensagem.Text, false,
                     System.Net.Mail.MailPriority.High);
 
                 btnEnviar.Visible = false;
                 tbxNome.Visible = false;
                 tbxEMail.Visible = false;
-                tbxAssunto.Visible = false;
+                ddlAssunto.Visible = false;
                 tbxMensagem.Visible = false;
                 Label1.Text = "<br>Email enviado com sucesso!";
                 Label2.Text = "Em breve retornaremos seu contato.";
