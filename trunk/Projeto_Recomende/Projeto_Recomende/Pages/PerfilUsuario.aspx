@@ -4,7 +4,7 @@
     <link href="../Util/Styles/PagesStyleSheets.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <div id="Content">
     <div id="opcoes">
             <a href="PerfilUsuario.aspx#perguntasPerfil">Perguntas do perfil</a>

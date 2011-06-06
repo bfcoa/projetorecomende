@@ -12,19 +12,22 @@ namespace Projeto_Recomende.Codes.BLL
     {
         Usuario user;
         UsuarioDao userDao;
+        public string Extencao { get; set; } 
 
         public string CadastrarUsuario(bool fotoValida, Usuario usuario)
         {
             try
             {
+                userDao = new UsuarioDao();
+                
                 if (fotoValida)
                 {
-                    userDao.CadastrarUsuario(user);
+                    userDao.CadastrarUsuario(usuario);
                     return "Cadastro realizado com sucesso!";
                 }
                 throw new Exception();
             }
-            catch (Exception)
+            catch (Exception ex )
             {
                 return "Usuario Invalido!";
             }
@@ -34,32 +37,67 @@ namespace Projeto_Recomende.Codes.BLL
         {
             char[] ext = usuario.end_foto.ToCharArray();
             Array.Reverse(ext);
-            string extencao = "";
+            Extencao = "";
 
             foreach (var item in ext)
             {
-                extencao += item;
+                Extencao += item;
                 if (item == '.')
                 {
                     break;
                 }
             }
 
-            ext = extencao.ToCharArray();
-            Array.Reverse(ext);
-            extencao = ext.ToString();
+            ext = Extencao.ToCharArray();
+            Array.Reverse(ext) ;
+            Extencao = "";
+            foreach (var item in ext)
+            {
+                Extencao += item;
+            }
 
-            if (extencao == ".jpeg" || extencao == ".jpg" || extencao == ".bmp" || extencao == ".gif" || extencao == ".png")
+
+            if (Extencao == ".jpeg" || Extencao == ".jpg" || Extencao == ".bmp" || Extencao == ".gif" || Extencao == ".png")
             {
                 return true;
             }
             else
             {
-                extencao = "Imagem invalida!";
+                Extencao = "Imagem invalida!";
                 return false;
             }
 
         }
 
+        public bool updateFoto(Usuario usuario)
+        {
+            if (usuario.end_foto != @"../Util/Imagens/ImagensUsuarios/" + usuario.id_usuario + Extencao)
+            {
+               usuario.end_foto =  userDao.UpdateFoto(usuario, Extencao);
+                
+                return true;
+            }
+            return false;
+        }
+
+        public Usuario loadUsuario(Usuario usuario)
+        {
+            try {
+                userDao = new UsuarioDao();
+
+                usuario = userDao.LoadUsuario(usuario.email, usuario.senha);
+                if (usuario != null)
+                {
+                    return usuario;
+                }
+
+            }
+            catch(Exception ex)
+            {
+                
+            }
+
+            return null;
+        }
     }
 }

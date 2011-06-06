@@ -16,7 +16,9 @@ namespace Projeto_Recomende.Codes.OBJ
             this.nm_usuario = registro["nm_usuario"].ToString();
             this.email = registro["email"].ToString();
             this.senha = registro["senha"].ToString();
-            this.tipo_usuario = registro["tipo_usuario"].ToString();        
+            this.tipo_usuario = registro["tipo_usuario"].ToString();
+            this.end_foto = registro["end_foto"].ToString();
+
         }
         public Usuario()
         { }

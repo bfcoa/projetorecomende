@@ -5,6 +5,7 @@ using System.Web;
 using Projeto_Recomende.Util;
 using Projeto_Recomende.Codes.OBJ;
 using System.Data;
+using Projeto_Recomende.Codes.BLL;
 
 namespace Projeto_Recomende.Codes.DAO
 {
@@ -13,18 +14,38 @@ namespace Projeto_Recomende.Codes.DAO
         public bool CadastrarUsuario(Usuario usuario)
         {
             AdoUtils ado = new AdoUtils();
-            string query = "INSERT INTO tb_noticias (titulo, noticia, data, id_usuario) " +
-                           "VALUES (@titulo, @noticia, @data, @id_usuario);";
+            string query = "INSERT INTO tb_usuario (nm_usuario, email, senha, tipo_usuario, end_foto) " +
+                           "VALUES (@nm_usuario, @email, @senha, @tipo_usuario, @end_foto);";
             List<KeyValuePair<string, object>> parametros = new List<KeyValuePair<string, object>>();
             parametros.Add(new KeyValuePair<string, object>("@nm_usuario", usuario.nm_usuario));
             parametros.Add(new KeyValuePair<string, object>("@email", usuario.email));
             parametros.Add(new KeyValuePair<string, object>("@senha", usuario.senha));
-            parametros.Add(new KeyValuePair<string, object>("@id_usuario", usuario.id_usuario));
+            //parametros.Add(new KeyValuePair<string, object>("@id_usuario", usuario.id_usuario));
             parametros.Add(new KeyValuePair<string, object>("@tipo_usuario", usuario.tipo_usuario));
             parametros.Add(new KeyValuePair<string, object>("@end_foto", usuario.end_foto));
-            
-            return ado.ExecuteCommand(query, parametros.ToArray());
+            int codUsuario = 0;
+            if (ado.ExecuteCommand(query, parametros.ToArray()))
+            {
+                query = "SELECT TOP 1 id_usuario FROM tb_usuario ORDER BY id_usuario DESC";
+                int.TryParse(ado.GetObject(query).ToString(), out codUsuario);
+                usuario.id_usuario = codUsuario;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
+
+        }
+        public string UpdateFoto(Usuario usuario, string extencao)
+        {
+            AdoUtils ado = new AdoUtils();
+            //UsuarioBll userBll = new UsuarioBll();
+
+            string query = "UPDATE tb_usuario SET end_foto = ('../Util/Imagens/ImagensUsuarios/"+usuario.id_usuario + extencao +"') where id_usuario = " + usuario.id_usuario;
+            ado.ExecuteCommand(query);
+            return usuario.end_foto;
         }
 
         public Usuario LoadUsuario(string email, string senha)
