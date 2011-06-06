@@ -9,10 +9,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Recomende.com</title>
     <link href="Util/Styles/MasterPageStyleSheets.css" rel="stylesheet" type="text/css"
-        media="all" />
-    <!--  STEP ONE: insert path to SWFObject JavaScript -->
-    <script type="text/javascript" src="../Util/Scrypts/swfobject/swfobject.js"></script>
-    <!--  STEP TWO: configure SWFObject JavaScript and embed CU3ER slider -->
+        media="all" />    
+    <script type="text/javascript" src="../Util/Scrypts/swfobject/swfobject.js"></script>    
     <script type="text/javascript">
         var flashvars = {};
         flashvars.xml = "../Util/Cuber/config.xml";
@@ -37,14 +35,10 @@
                     <asp:TextBox ID="txtSenha" CssClass="txt" runat="server" ForeColor="White" TextMode="Password"></asp:TextBox>
                     <asp:Button ID="bntLogar" CssClass="btn" runat="server" Text="LOGAR" OnClick="bntLogar_Click" />
                     <asp:Label ID="lblMensagem" runat="server" ForeColor="Red"></asp:Label>
-                    <%--<asp:HyperLink ID="hlCadastro" runat="server" NavigateUrl="Pages/CadastroUsuario.aspx" Text="Cadastre-se aqui!"></asp:HyperLink>--%>
-                    <%--<label style="margin-left: 90px">
-                        BUSCA</label>
-                    <input name="search" type="text" class="txt" />
-                    <input name="search-btn" type="submit" class="btn" value="PESQUISAR" />--%>
                 </p>
                 <h1 class="logo">
                 </h1>
+
                 <%--Menus--%>
                 <ul runat="server" id="menuSuperior">
                     <li><a class="active" href="Home.aspx">HOME</a></li>
@@ -54,18 +48,24 @@
                     <li><a href="CadastroUsuario.aspx">CADASTRE-SE</a></li>
                 </ul>
                 <%--Fim dos Menus--%>
+
+                <%--Cubo 3D--%>
                 <div id="cu3er-container">
                         <a href="http://www.adobe.com/go/getflashplayer">
                             <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif"
                                 alt="Get Adobe Flash player" />
                         </a>
                     </div>
+
+                 <%--Fim Do Cubo 3D--%>
+
                 <asp:ContentPlaceHolder ID="cphBanner" runat="server">
                     
                 </asp:ContentPlaceHolder>
             </div>
         </div>
     </div>
+
     <%--Conteudo Da Pagina--%>
     <div id="content">
         <div id="content_cen">
@@ -74,14 +74,12 @@
                     <asp:ContentPlaceHolder ID="cphBody" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
-                <%--<div id="welcom_pan">
-                    <asp:ContentPlaceHolder ID="cphBodyDown" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>--%>
+                
             </div>
         </div>
     </div>
-    <%--Fim Do COnteudo Da Pagina--%>
+    <%--Fim Do Conteudo Da Pagina--%>
+    
     <%--Menu Inferior--%>
     <div id="foot">
         <div id="foot_cen">
