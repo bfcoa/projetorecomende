@@ -53,6 +53,7 @@ h2 span										{color:#3b3b3b; text-transform:uppercase; margin-right:5px}
 .lftWrap p									{width:100%; float:left; font-family:Arial, Helvetica, sans-serif; font-size:16px; line-height:28px; color:#4d4d4d}
 .rgtWrap input.txt							{width:176px; margin:20px 20px 0 0; padding:3px 5px; height:30px; float:left; font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#bfbfbf; font-weight:bold; border:#cbcbcb solid 1px; background:#ffffff}
 .rgtWrap textarea.txt						{width:176px; margin:20px 20px 0 0; padding:3px 5px; height:30px; float:left; font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#bfbfbf; font-weight:bold; border:#cbcbcb solid 1px; background:#ffffff}
+.rgtWrap select.txt						    {width:176px; margin:20px 20px 0 0; padding:3px 5px; height:30px; float:left; font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#bfbfbf; font-weight:bold; border:#cbcbcb solid 1px; background:#ffffff}
 .rgtWrap input.btn							{width:113px; height:42px; margin-top:18px; float:left; font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#ffffff; font-weight:bold; text-align:center; cursor:pointer; border:0; background:url(../Imagens/ImagensSite/submitBtn.png) no-repeat}
 .rgtWrap input.btn:active					{background-position:1px 1px}
 .rgtWrap									{width:500px; float:left}
@@ -109,4 +110,3 @@ ul#infoPan li p.descrip						{margin-top:13px; font-size:12px; line-height:16px;
 #service_pan ul li p a						{width:auto; float:right; color:#31a1ff}
 
 .btn                                        {width:68px; height:21px;float:none; border:0; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:11px; color:#999999; text-align:center; cursor:pointer; background:url(../Imagens/ImagensSite/searchbtn.png) no-repeat}
-.txt                                        {width:135px; height:21px; border:0; background:url(../Imagens/ImagensSite/searchbg.png)}
