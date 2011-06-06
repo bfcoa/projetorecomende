@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageRecomende.Master" AutoEventWireup="true"
     CodeBehind="SAC.aspx.cs" Inherits="Projeto_Recomende.Pages.SAC" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<script type="text/javascript">
+    <script type="text/javascript">
 
 function limpa() {
 if(document.getElementById('email').value=="")
@@ -15,15 +15,20 @@ document.getElementById('email').value="Prrencha aqui seu e-mail";
     <div id="welcom_pan">
         <div class="rgtWrap">
             <h3>
-                <span>RECOMENDE!</span>&nbsp;&nbsp; Entre em contato conosco!
+                RECOMENDE!&nbsp;&nbsp; 
+                <asp:Label ID="Label1" runat="server" Text="Entre em contato conosco!"></asp:Label>
             </h3>
-            <p> Dúvidas, críticas ou sugestões? <br /> Preencha o Formulário abaixo para conversarmos à respeito
+            <p><asp:Label ID="Label2" runat="server" 
+                    Text="Dúvidas, críticas ou sugestões? Preencha o Formulário abaixo para conversarmos à respeito"></asp:Label>
             </p>
             <asp:TextBox name="name" class="txt" ID="tbxNome" runat="server" Text="Nome" onfocus="this.value='';"></asp:TextBox>
-            <asp:TextBox name="email" class="txt" ID="tbxEMail" runat="server" Text="E-Mail" onfocus="this.value='';"></asp:TextBox><br />
+            <asp:TextBox name="email" class="txt" ID="tbxEMail" runat="server" Text="E-Mail" onfocus="this.value='';"></asp:TextBox>
+            <asp:TextBox name="email" class="txt" ID="tbxAssunto" runat="server" 
+                Text="Assunto" onfocus="this.value='';" Width="364px"></asp:TextBox><br />
             <asp:TextBox class="txt" ID="tbxMensagem" runat="server" Height="208px" 
                 TextMode="MultiLine" Width="403px" Text="Digite aqui sua mensagem" onfocus="this.value='';"></asp:TextBox><br />
-            <asp:Button name="submit" class="btn" ID="btnEnviar" runat="server" Text="Enviar!" />
+            <asp:Button name="submit" class="btn" ID="btnEnviar" runat="server" 
+                Text="Enviar!" onclick="btnEnviar_Click" />
         </div>
     </div>
     <!-- 
