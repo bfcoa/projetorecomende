@@ -25,33 +25,44 @@ namespace Projeto_Recomende.Pages
                 ViewState["usuario"] = Session["User"];
                 Session.Remove("User");
             }
+            //Upload de imagens para o avatar
+            if (Page.IsPostBack)
+            {
+                if (FileUpload1.HasFile)
+                {
+                    FileUpload1.SaveAs(Server.MapPath(@"~\Util\Imagens\ImagensUsuarios\" + FileUpload1.FileName));
+                    Image1.ImageUrl = "../Util/Imagens/ImagensUsuarios/" + FileUpload1.FileName;
+                    Image1.Height = 70;
+                    Image1.Visible = true;
+                    Image1.DataBind();
+                }
+            }
         }
-
 
         protected void bntConfirma_Click(object sender, EventArgs e)
         {
 
             try
             {
-                userBll = new UsuarioBll();
-                user = new Usuario();
+                //userBll = new UsuarioBll();
+                //user = new Usuario();
 
-                user.nm_usuario = txtNome.Text;
-                user.senha = txtSenha.Text;
-                user.email = txtEmail.Text;
-                user.end_foto = @"../Util/Imagens/ImagensUsuarios/" + fuFotoPerfil.FileName;
-                user.tipo_usuario = "usuario";
-                bool fotoValida = userBll.verificaFoto(user);
+                //user.nm_usuario = txtNome.Text;
+                //user.senha = txtSenha.Text;
+                //user.email = txtEmail.Text;
+                //user.end_foto = @"../Util/Imagens/ImagensUsuarios/" + AsyncFileUpload1.FileName;
+                //user.tipo_usuario = "usuario";
+                //bool fotoValida = userBll.verificaFoto(user);
 
-                if (fotoValida)
-                {
-                    fuFotoPerfil.SaveAs(Server.MapPath(@"../Util/Imagens/ImagensUsuarios/" + fuFotoPerfil.FileName ));
-                    path = @"../Util/Imagens/ImagensUsuarios/" + fuFotoPerfil.FileName;
+                //if (fotoValida)
+                //{
+                //    AsyncFileUpload1.SaveAs(Server.MapPath(@"../Util/Imagens/ImagensUsuarios/" + AsyncFileUpload1.FileName));
+                //    path = @"../Util/Imagens/ImagensUsuarios/" + AsyncFileUpload1.FileName;
 
-                    lblMensagem.Text  =  userBll.CadastrarUsuario(fotoValida, user);
-                    File.Move(Server.MapPath(path), Server.MapPath(@"../Util/Imagens/ImagensUsuarios/" + user.id_usuario + userBll.Extencao));
-                    bool fotoAtualizada = userBll.updateFoto(user);
-                }
+                //    lblMensagem.Text  =  userBll.CadastrarUsuario(fotoValida, user);
+                //    File.Move(Server.MapPath(path), Server.MapPath(@"../Util/Imagens/ImagensUsuarios/" + user.id_usuario + userBll.Extencao));
+                //    bool fotoAtualizada = userBll.updateFoto(user);
+                //}
                 //throw new Exception();
 
             }
