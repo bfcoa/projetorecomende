@@ -118,7 +118,7 @@ padding: 5px;
                                     <br />
                                     <div>
                                         <input runat="server" type="image" class="btnRecomendar" src="../Util/Imagens/ImagensSite/recomendar.png"
-                                            title="Recomendar Este Filme" onclick="Comentar();" />
+                                            title="Recomendar Este Filme" onclick="Recomendar(1101);" />
                                         <input type="image" style="margin-left: 20px" src="../Util/Imagens/ImagensSite/comentar.png"
                                             title="Fazer Comentário Sobre o Filme" />
                                     </div>

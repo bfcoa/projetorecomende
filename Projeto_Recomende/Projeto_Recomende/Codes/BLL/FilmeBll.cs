@@ -25,7 +25,7 @@ namespace Projeto_Recomende.Codes.BLL
                                                     "<img width=\"120px\" src=\"../Util/Imagens/ImagensFilmes/'+f.foto+'\" style=\"margin: 0px\"" +
                                                         "alt=\"Não há foto disponível\">" +
                                                     "<center><br /><div> " +
-                                                        "<input type=\"image\" src=\"../Util/Imagens/ImagensSite/recomendar.png\" title=\"Recomendar Este Filme\"/>" +
+                                                        "<input type=\"image\" src=\"../Util/Imagens/ImagensSite/recomendar.png\" title=\"Recomendar Este Filme\" onclick=\"Recomendar('+f.cod_filme+');\"  />" +
                                                         "<input type=\"image\" style=\"margin-left:20px\" src=\"../Util/Imagens/ImagensSite/comentar.png\" title=\"Fazer Comentário Sobre o Filme\" />" +
                                                     "</div></center>" +
                                                 "</td>" +

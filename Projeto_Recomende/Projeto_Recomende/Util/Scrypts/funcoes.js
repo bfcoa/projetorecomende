@@ -1,5 +1,4 @@
-﻿function Comentar(cod_filme) {
-    var Paramters = "{teste:'teste'}";
+﻿function Recomendar(cod_filme) {    
     $.ajax({
         type: 'POST',
         url: "JqueryHandler.ashx?cod_filme=" + cod_filme,
