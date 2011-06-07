@@ -18,8 +18,8 @@ namespace Projeto_Recomende.Pages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            NoticiaBll bll = new NoticiaBll();
-            bll.PostarNoticia(txtTitulo.Text, Editor1.Content);
+            //NoticiaBll bll = new NoticiaBll();
+            //bll.PostarNoticia(txtTitulo.Text, Editor1.Content);
         }
     }
 }
