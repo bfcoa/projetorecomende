@@ -30,9 +30,11 @@ document.getElementById('email').value="Prrencha aqui seu e-mail";
             </asp:DropDownList>
             <br />
             <asp:TextBox class="txt" ID="tbxMensagem" runat="server" Height="208px" 
-                TextMode="MultiLine" Width="403px" Text="Digite aqui sua mensagem" onfocus="this.value='';"></asp:TextBox><br />
+                TextMode="MultiLine" Width="500px" Text="Digite aqui sua mensagem" onfocus="this.value='';"></asp:TextBox><br />
+                <center>
             <asp:Button name="submit" class="btn" ID="btnEnviar" runat="server" 
                 Text="Enviar!" onclick="btnEnviar_Click" />
+                </center>
         </div>
     </div>
     <!-- 
