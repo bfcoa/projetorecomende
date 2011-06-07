@@ -29,7 +29,7 @@ text-align: center;
 padding: 5px;
 }
 </style>--%>
-</asp:Content>
+    </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBanner" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBody" runat="server">
@@ -43,9 +43,8 @@ padding: 5px;
                         RECOMENDE!&nbsp;&nbsp;
                         <asp:Label ID="Label1" runat="server" Text="Busca De Filmes"></asp:Label>
                     </h3>
-                    <p style="text-align:left; padding-left:30px;">
-                    <asp:Label ID="Label2" runat="server" 
-                    Text="Aqui você pode buscar um filme que você gostou e recomendar para o pessoal!!"></asp:Label>
+                    <p style="text-align: left; padding-left: 30px;">
+                        <asp:Label ID="Label2" runat="server" Text="Aqui você pode buscar um filme que você gostou e recomendar para o pessoal!!"></asp:Label>
                     </p>
                     <%--<label> NOME DO FILME</label>--%>
                     <asp:Label ID="lblMensagem" runat="server" ForeColor="Red"></asp:Label><br />
@@ -80,6 +79,7 @@ padding: 5px;
                         <asp:ListItem Value="22">TV</asp:ListItem>
                     </asp:DropDownList>
                     <br />
+                    
                     <%--<label>Ordenar Por:</label>--%>
                     <asp:DropDownList ID="dplOrdem" CssClass="txt" runat="server">
                         <asp:ListItem Value="0">Ordenar Por</asp:ListItem>
@@ -92,10 +92,9 @@ padding: 5px;
                     <asp:Button ID="bntBuscar" runat="server" CssClass="btn" Text="Buscar Filme" OnClick="bntBuscar_Click" />
                 </div>
             </div>
-            <center>
-                <div id="divFilmesResult" runat="server" visible="false" style="padding: 5px; background-color: White;
-                    margin-top: 10px; clear: both">
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>">
+            <div id="divFilmesResult" runat="server" visible="true" style="padding: 5px; background-color: White;
+                margin-top: 10px; clear: both">
+                <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>">
                     </asp:SqlDataSource>
                     <asp:GridView BackColor="White" ID="GridView1" runat="server" AllowPaging="True"
                         PageSize="5" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnPageIndexChanged="GridView1_PageIndexChanged"
@@ -104,9 +103,33 @@ padding: 5px;
                             <asp:BoundField DataField="trFilme" HtmlEncode="false" HtmlEncodeFormatString="false"
                                 HeaderText="Resultados Da Sua Busca:" SortExpression="trFilme" />
                         </Columns>
-                    </asp:GridView>
-                </div>
-            </center>
+                    </asp:GridView>--%>
+
+
+                <table>
+                    <tbody>
+                        
+                        <tr>
+                            <td style="width: 120px; height: 120px;">
+                                <img width="120px" src="../Util/Imagens/ImagensFilmes/2410715.gif" style="margin: 0px" alt=" Foto Não Disponível">
+                                <center><br /><div>
+                                    <input type="image" src="../Util/Imagens/ImagensSite/recomendar.png" title="Recomendar Este Filme" />
+                                    <input type="image" style="margin-left:20px" src="../Util/Imagens/ImagensSite/comentar.png" title="Fazer Comentário Sobre o Filme" />
+                                </div></center>
+                            </td>
+                            <td valign="top">
+                                <strong>Titulo:</strong><span>'+f.nm_titulo'</span><br>
+                                <strong>Titulo Original:</strong><span>'+f.nm_tituloOriginal+'</span><br>
+                                <strong>Gênero:</strong><span>'+g.tp_genero+'</span><br>
+                                <strong>Ano de Produção:</strong><span>'+f.ano_producao+'</span><br>
+                                <strong>Duração:</strong><span>'+f.duracao+'</span><br>
+                                <strong>Elenco:</strong><span>'+f.elenco+'</span><br>
+                                <strong>Sinopse:</strong><span>'+CONVERT(VARCHAR(8000), f.txt_sinopse)+'</span><br>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

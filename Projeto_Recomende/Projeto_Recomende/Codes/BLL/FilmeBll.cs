@@ -20,10 +20,14 @@ namespace Projeto_Recomende.Codes.BLL
                     string select = "SELECT " +
                                     "'<table>" +
                                         "<tbody>" +
-                                            "<tr>" +
+                                            "<tr style=\"width: 120px; height: 120px;\">" +
                                                 "<td>" +
                                                     "<img width=\"120px\" src=\"../Util/Imagens/ImagensFilmes/'+f.foto+'\" style=\"margin: 0px\"" +
                                                         "alt=\"Não há foto disponível\">" +
+                                                    "<center><br /><div> " +
+                                                        "<input type=\"image\" src=\"../Util/Imagens/ImagensSite/recomendar.png\" title=\"Recomendar Este Filme\"/>" +
+                                                        "<input type=\"image\" style=\"margin-left:20px\" src=\"../Util/Imagens/ImagensSite/comentar.png\" title=\"Fazer Comentário Sobre o Filme\" />" +
+                                                    "</div></center>" +
                                                 "</td>" +
                                                 "<td valign=\"top\">" +
                                                     "<strong>Titulo:</strong><span>'+f.nm_titulo+'</span><br>" +
@@ -69,12 +73,13 @@ namespace Projeto_Recomende.Codes.BLL
                                 break;
                         }
                     }
-                    if(where.Contains("WHERE  AND")){
+                    if (where.Contains("WHERE  AND"))
+                    {
                         where = where.Replace("WHERE  AND", "WHERE");
                     }
 
                     FilmeDao dao = new FilmeDao();
-                    query = select + where + orderBy; 
+                    query = select + where + orderBy;
                     //return dao.BuscarFilmes(where, orderBy);               
                     return query;
                 }

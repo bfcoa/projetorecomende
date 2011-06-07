@@ -76,6 +76,7 @@
     <Content Include="Util\Cuber\images\slide4.jpg" />
     <Content Include="Util\Imagens\ImagensSite\bannerBg.png" />
     <Content Include="Util\Imagens\ImagensSite\buttonBg.png" />
+    <Content Include="Util\Imagens\ImagensSite\comentar.png" />
     <Content Include="Util\Imagens\ImagensSite\contentBg.png" />
     <Content Include="Util\Imagens\ImagensSite\crosslines.png" />
     <Content Include="Util\Imagens\ImagensSite\footBg.png" />
@@ -86,6 +87,7 @@
     <Content Include="Util\Imagens\ImagensSite\logo.png" />
     <Content Include="Util\Imagens\ImagensSite\logohover.png" />
     <Content Include="Util\Imagens\ImagensSite\pat.png" />
+    <Content Include="Util\Imagens\ImagensSite\recomendar.png" />
     <Content Include="Util\Imagens\ImagensSite\searchbg.png" />
     <Content Include="Util\Imagens\ImagensSite\searchbtn.png" />
     <Content Include="Util\Imagens\ImagensSite\slideBg.png" />
