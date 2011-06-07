@@ -43,7 +43,7 @@
                 <ul runat="server" id="menuSuperior">
                     <li><a class="active" href="Home.aspx">HOME</a></li>
                     <li><a href="BuscarFilmes.aspx">FILMES</a></li>
-                    <li><a href="#">CONTATO</a></li>
+                    <li><a href="Sac.aspx">CONTATO</a></li>
                     <li><a href="#">LOGIN</a></li>
                     <li><a href="CadastroUsuario.aspx">CADASTRE-SE</a></li>
                 </ul>
