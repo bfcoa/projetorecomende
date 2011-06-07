@@ -2,6 +2,11 @@
     CodeBehind="BuscarFilmes.aspx.cs" Inherits="Projeto_Recomende.Pages.BuscarFilmes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="../Util/Scrypts/jquery/extensao/themes/base/jquery.ui.all.css" rel="stylesheet"
+        type="text/css" />
+    <script src="../Util/Scrypts/jquery/jquery-1.5.2.js" type="text/javascript"></script>
+    <script src="../Util/Scrypts/funcoes.js" type="text/javascript"></script>
+    
     <%--<style type="text/css">
 #filtroAvancado
 {    
@@ -29,7 +34,7 @@ text-align: center;
 padding: 5px;
 }
 </style>--%>
-    </asp:Content>
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBanner" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphBody" runat="server">
@@ -79,7 +84,6 @@ padding: 5px;
                         <asp:ListItem Value="22">TV</asp:ListItem>
                     </asp:DropDownList>
                     <br />
-                    
                     <%--<label>Ordenar Por:</label>--%>
                     <asp:DropDownList ID="dplOrdem" CssClass="txt" runat="server">
                         <asp:ListItem Value="0">Ordenar Por</asp:ListItem>
@@ -94,28 +98,31 @@ padding: 5px;
             </div>
             <div id="divFilmesResult" runat="server" visible="true" style="padding: 5px; background-color: White;
                 margin-top: 10px; clear: both">
-                <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>">
-                    </asp:SqlDataSource>
-                    <asp:GridView BackColor="White" ID="GridView1" runat="server" AllowPaging="True"
-                        PageSize="5" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnPageIndexChanged="GridView1_PageIndexChanged"
-                        PagerSettings-Mode="NumericFirstLast">
-                        <Columns>
-                            <asp:BoundField DataField="trFilme" HtmlEncode="false" HtmlEncodeFormatString="false"
-                                HeaderText="Resultados Da Sua Busca:" SortExpression="trFilme" />
-                        </Columns>
-                    </asp:GridView>--%>
-
-
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>">
+                </asp:SqlDataSource>
+                <asp:GridView BackColor="White" ID="GridView1" runat="server" AllowPaging="True"
+                    PageSize="5" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" OnPageIndexChanged="GridView1_PageIndexChanged"
+                    PagerSettings-Mode="NumericFirstLast">
+                    <Columns>
+                        <asp:BoundField DataField="trFilme" HtmlEncode="false" HtmlEncodeFormatString="false"
+                            HeaderText="Resultados Da Sua Busca:" SortExpression="trFilme" />
+                    </Columns>
+                </asp:GridView>
                 <table>
                     <tbody>
-                        
                         <tr>
                             <td style="width: 120px; height: 120px;">
-                                <img width="120px" src="../Util/Imagens/ImagensFilmes/2410715.gif" style="margin: 0px" alt=" Foto Não Disponível">
-                                <center><br /><div>
-                                    <input type="image" src="../Util/Imagens/ImagensSite/recomendar.png" title="Recomendar Este Filme" />
-                                    <input type="image" style="margin-left:20px" src="../Util/Imagens/ImagensSite/comentar.png" title="Fazer Comentário Sobre o Filme" />
-                                </div></center>
+                                <img width="120px" src="../Util/Imagens/ImagensFilmes/2410715.gif" style="margin: 0px"
+                                    alt=" Foto Não Disponível">
+                                <center>
+                                    <br />
+                                    <div>
+                                        <input runat="server" type="image" class="btnRecomendar" src="../Util/Imagens/ImagensSite/recomendar.png"
+                                            title="Recomendar Este Filme" onclick="Comentar();" />
+                                        <input type="image" style="margin-left: 20px" src="../Util/Imagens/ImagensSite/comentar.png"
+                                            title="Fazer Comentário Sobre o Filme" />
+                                    </div>
+                                </center>
                             </td>
                             <td valign="top">
                                 <strong>Titulo:</strong><span>'+f.nm_titulo'</span><br>

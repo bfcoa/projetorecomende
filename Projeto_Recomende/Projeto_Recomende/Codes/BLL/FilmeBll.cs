@@ -13,7 +13,7 @@ namespace Projeto_Recomende.Codes.BLL
         public string BuscarFilmes(string nomeFilme, string ator, int genero, int ordenarPor)
         {
             string query = "";
-            if (!string.IsNullOrEmpty(nomeFilme.Trim()) || !string.IsNullOrEmpty(ator.Trim()))
+            if (!string.IsNullOrEmpty(nomeFilme.Trim()) && nomeFilme != "Titulo Do Filme" || !string.IsNullOrEmpty(ator.Trim()) && ator != "Ator")
             {
                 try
                 {
