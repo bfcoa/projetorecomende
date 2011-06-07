@@ -31,22 +31,22 @@ namespace Projeto_Recomende.Pages {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
-        /// txtFilme control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFilme;
+        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// bntBuscar control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bntBuscar;
+        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// lblMensagem control.
@@ -56,6 +56,15 @@ namespace Projeto_Recomende.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensagem;
+        
+        /// <summary>
+        /// txtFilme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtFilme;
         
         /// <summary>
         /// txtAtor control.
@@ -83,6 +92,15 @@ namespace Projeto_Recomende.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dplOrdem;
+        
+        /// <summary>
+        /// bntBuscar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bntBuscar;
         
         /// <summary>
         /// divFilmesResult control.
