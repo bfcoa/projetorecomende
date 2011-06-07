@@ -10,32 +10,21 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
-    <div id="ContentCadastro">
-        <div>
-            <asp:Label ID="lblNome" runat="server" Text="Nome:"></asp:Label>
-            <asp:TextBox ID ="txtNome" runat="server" ></asp:TextBox>
-        </div>
-        <div>
-            <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
-            <asp:TextBox ID ="txtEmail" runat="server" ></asp:TextBox>
-        </div>
-         <div>
-            <asp:Label ID="lblSenha" runat="server" Text="Senha:"></asp:Label>
-            <asp:TextBox ID ="txtSenha" runat="server" Height="20px" Width="124px" ></asp:TextBox>
-        </div>
-        <div>
-            <asp:Label ID="lblConfirmaSenha" runat="server" Text="Confirmação de senha:"></asp:Label>
-            <asp:TextBox ID ="txtConfirmaSenha" runat="server" ></asp:TextBox>
-        </div>
-        <div>
-            <asp:FileUpload ID="fuFotoPerfil" runat="server" />
-         <!--   <input id="File1" type="file" onclick=""/></div> -->
-        <div>
-
-           <asp:Button ID="bntConfirma" runat="server" Text="Confirmar" 
-                onclick="bntConfirma_Click" />
-                <asp:Label ID="lblMensagem" runat="server"></asp:Label>
-        </div>
-
+    <div id="ContentCadastro" class="rgtWrap">
+        <asp:TextBox class="txt" ID="txtNome" runat="server" onfocus="this.value='';" Text="Nome"></asp:TextBox>
+        <br />
+        <asp:TextBox class="txt" ID="txtEmail" runat="server" Text="E-Mail"></asp:TextBox>
+        <br />
+        <asp:TextBox class="txt" ID="txtSenha" runat="server" Text="Senha"></asp:TextBox>
+        <br />
+        <asp:TextBox class="txt" ID="txtConfirmaSenha" runat="server" Text="Confirme a Senha"></asp:TextBox>
+        <br />
+        <h3>
+            Selecione uma foto para seu perfil:</h3>
+        <asp:FileUpload ID="fuFotoPerfil" runat="server" class="txt" Style="text-color: black" />
+        <br />
+        <!--   <input id="File1" type="file" onclick=""/></div> -->
+        <asp:Button ID="bntConfirma" class="btn" runat="server" Text="Confirmar" OnClick="bntConfirma_Click" />
+        <asp:Label ID="lblMensagem" runat="server"></asp:Label>
     </div>
 </asp:Content>
