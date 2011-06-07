@@ -1,6 +1,9 @@
 ﻿html{background:#151515}
 body										{margin:0; background:#151515; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif}
-*											{margin:0; padding:0}
+*											{margin:0; padding:0;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 a											{outline:0; text-decoration:none}
 img											{border:0}
 h1,h2,h3,h4,h5,h6							{font-weight:normal}
@@ -54,6 +57,7 @@ h2 span										{color:#3b3b3b; text-transform:uppercase; margin-right:5px}
 .rgtWrap input.txt							{width:176px; margin:20px 0px 0 0; padding:3px 5px; height:30px; font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#bfbfbf; font-weight:bold; border:#cbcbcb solid 1px; background:#ffffff}
 .rgtWrap textarea.txt						{width:176px; margin:20px 20px 0 0; padding:3px 5px; height:30px; font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#bfbfbf; font-weight:bold; border:#cbcbcb solid 1px; background:#ffffff}
 .rgtWrap select.txt						    {width:190px; margin:20px 0px 0 0; padding:3px 5px; height:40px; font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#bfbfbf; font-weight:bold; border:#cbcbcb solid 1px; background:#ffffff}
+.rgtWrap label                              {padding:3px 5px 3px 5px;}
 .rgtWrap input.btn							{width:113px; height:42px; margin-top:18px; font-family:Arial, Helvetica, sans-serif; font-size:17px; color:#ffffff; font-weight:bold; text-align:center; cursor:pointer; border:0; background:url(../Imagens/ImagensSite/submitBtn.png) no-repeat}
 .rgtWrap input.btn:active					{background-position:1px 1px}
 .rgtWrap									{width:500px; margin-left:auto; margin-right:auto;}

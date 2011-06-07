@@ -24,9 +24,23 @@
             <br />
             <asp:TextBox class="txt" ID="txtConfirmaSenha" runat="server" Text="Confirme a Senha"></asp:TextBox>
             <br />
-            <h3>
-                Selecione uma foto para seu perfil:</h3>
-            <asp:FileUpload ID="fuFotoPerfil" runat="server" class="txt" Style="text-color: black" />
+            <h3>Selecione uma foto para seu perfil:</h3>
+            <asp:FileUpload ID="fuFotoPerfil" runat="server" class="txt" />
+            <br />
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
+                ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>" 
+                InsertCommand="INSERT INTO tb_genero(id_genero, tp_genero) VALUES (@id_genero,@tp_genero)" 
+                SelectCommand="SELECT id_genero, tp_genero FROM tb_genero">
+                <InsertParameters>
+                    <asp:Parameter Name="id_genero" />
+                    <asp:Parameter Name="tp_genero" />
+                </InsertParameters>
+            </asp:SqlDataSource>
+            <h3>Marque as categorias de seu interesse:</h3>
+            <asp:CheckBoxList ID="CheckBoxList1" runat="server" 
+                DataSourceID="SqlDataSource1" DataTextField="tp_genero" 
+                DataValueField="id_genero">
+            </asp:CheckBoxList>
             <br />
             <!--   <input id="File1" type="file" onclick=""/></div> -->
             <asp:Button ID="bntConfirma" class="btn" runat="server" Text="Confirmar" OnClick="bntConfirma_Click" />
