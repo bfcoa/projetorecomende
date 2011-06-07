@@ -115,3 +115,5 @@ ul#infoPan li p.descrip						{margin-top:13px; font-size:12px; line-height:16px;
 
 .btn                                        {width:68px; height:21px;float:none; border:0; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif; font-size:11px; color:#999999; text-align:center; cursor:pointer; background:url(../Imagens/ImagensSite/searchbtn.png) no-repeat}
 .txt                                        {width:135px; height:21px; border:0; background:url(../Imagens/ImagensSite/searchbg.png)}
+.btnRecomendar                              {width:32px; height:32px;margin-top:2px; border:0; background:url(../Imagens/ImagensSite/recomendar.png) no-repeat}
+.btnComentar                                {width:32px; height:32px;margin-top:2px; border:0; background:url(../Imagens/ImagensSite/comentar.png) no-repeat}
