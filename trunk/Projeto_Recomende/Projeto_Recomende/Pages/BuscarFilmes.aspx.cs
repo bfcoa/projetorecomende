@@ -35,11 +35,6 @@ namespace Projeto_Recomende.Pages
             }
         }
 
-        protected void btnRecomendar_Click(object sender, EventArgs e)
-        {
-            Response.Write("Teste");
-        }
-
         protected void bntBuscar_Click(object sender, EventArgs e)
         {
             #region
