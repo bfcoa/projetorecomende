@@ -37,7 +37,7 @@ namespace Projeto_Recomende.Pages {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-    //    protected global::AjaxControlToolkit.HTMLEditor.Editor Editor1;
+        protected global::AjaxControlToolkit.HTMLEditor.Editor Editor1;
         
         /// <summary>
         /// Button1 control.
