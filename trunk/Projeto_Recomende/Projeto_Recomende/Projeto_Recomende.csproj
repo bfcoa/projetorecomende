@@ -93,6 +93,7 @@
     <Content Include="Util\Imagens\ImagensSite\slideBg.png" />
     <Content Include="Util\Imagens\ImagensSite\submitBtn.png" />
     <Content Include="Util\Imagens\ImagensSite\tweet.png" />
+    <Content Include="Util\Scrypts\funcoes.js" />
     <Content Include="Util\Scrypts\jquery\extensao\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Util\Scrypts\jquery\extensao\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Util\Scrypts\jquery\extensao\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

@@ -11,13 +11,13 @@ namespace Projeto_Recomende.Pages
     /// <summary>
     /// Summary description for ExtHandler
     /// </summary>
-    public class ExtHandler : IHttpHandler
+    public class JqueryHandler : IHttpHandler
     {
         
         
         public void ProcessRequest(HttpContext context)
         {
-            
+            string tste = context.Request["teste"];                      
             //ExtJSAjaxResponse res;
             //System.Web.Script.Serialization.JavaScriptSerializer jss = new System.Web.Script.Serialization.JavaScriptSerializer();
             //string acao = context.Request.Params["action"];
