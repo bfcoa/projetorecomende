@@ -22,16 +22,16 @@
             <asp:TextBox class="txt" ID="txtEmail" runat="server" Text="E-Mail"></asp:TextBox>
             <br />
             <asp:TextBox class="txt" ID="txtSenha" runat="server" Text="Senha"></asp:TextBox>
-            <asp:PasswordStrength ID="txtSenha_PasswordStrength" runat="server" Enabled="True"
+       <%--    <asp:PasswordStrength ID="txtSenha_PasswordStrength" runat="server" Enabled="True"
                 TargetControlID="txtSenha" DisplayPosition="BelowRight" PrefixText="Força da Senha: ">
-            </asp:PasswordStrength>
+            </asp:PasswordStrength> --%>
             <br />
             <asp:TextBox class="txt" ID="txtConfirmaSenha" runat="server" Text="Confirme a Senha"></asp:TextBox>
             <br />
             <h3>
                 Selecione uma foto para seu perfil:</h3>
             <br />
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="conditional">
+           <%--  <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="conditional">
                 <Triggers>
                     <asp:PostBackTrigger ControlID="btnUpload" />
                 </Triggers>
@@ -39,27 +39,29 @@
                     <asp:Image ID="Image1" runat="server" Visible="false" />
                     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
                     </asp:ToolkitScriptManager>
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
-                    <asp:Button ID="btnUpload" runat="server" Text="Upload" />
+                    <asp:FileUpload ID="AsyncFileUpload1" runat="server" />
+                  <asp:Button ID="btnUpload" runat="server" Text="Upload" 
+                        onclick="btnUpload_Click" />
                     <br />
                 </ContentTemplate>
-            </asp:UpdatePanel>
-
+            </asp:UpdatePanel> --%> 
+            <asp:FileUpload ID="AsyncFileUpload1" runat="server" />
             <br />
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>"
+            <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>"
                 InsertCommand="INSERT INTO tb_genero(id_genero, tp_genero) VALUES (@id_genero,@tp_genero)"
                 SelectCommand="SELECT id_genero, tp_genero FROM tb_genero">
                 <InsertParameters>
                     <asp:Parameter Name="id_genero" />
                     <asp:Parameter Name="tp_genero" />
                 </InsertParameters>
-            </asp:SqlDataSource>
-            <h3>
-                Marque as categorias de seu interesse:</h3>
-            <asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource1"
+            </asp:SqlDataSource>--%>
+           <%-- <h3>
+                Marque as categorias de seu interesse:</h3>--%>
+            <%--<asp:CheckBoxList ID="CheckBoxList1" runat="server" DataSourceID="SqlDataSource1"
                 DataTextField="tp_genero" DataValueField="id_genero">
-            </asp:CheckBoxList>
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            </asp:CheckBoxList>--%>
+
+            <%--<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>--%>
             <br />
             <!--   <input id="File1" type="file" onclick=""/></div> -->
             <asp:Button ID="bntConfirma" class="btn" runat="server" Text="Confirmar" OnClick="bntConfirma_Click" />

@@ -5,6 +5,7 @@ using System.Web;
 
 namespace Projeto_Recomende.Codes.OBJ
 {
+    [Serializable]
     public class Usuario
     {
         public Usuario(System.Data.DataRow registro)
