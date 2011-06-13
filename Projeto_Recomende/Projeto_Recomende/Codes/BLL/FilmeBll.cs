@@ -21,12 +21,12 @@ namespace Projeto_Recomende.Codes.BLL
                                     "'<table>" +
                                         "<tbody>" +
                                             "<tr style=\"width: 120px; height: 120px;\">" +
-                                                "<td>" +
+                                                "<td style=\"width: 120px; height: 120px;\">" +
                                                     "<img width=\"120px\" src=\"../Util/Imagens/ImagensFilmes/'+f.foto+'\" style=\"margin: 0px\"" +
                                                         "alt=\"Não há foto disponível\">" +
                                                     "<center><br /><div> " +
-                                                        "<input type=\"image\" src=\"../Util/Imagens/ImagensSite/recomendar.png\" title=\"Recomendar Este Filme\" onclick=\"Recomendar('+f.cod_filme+');\"  />" +
-                                                        "<input type=\"image\" style=\"margin-left:20px\" src=\"../Util/Imagens/ImagensSite/comentar.png\" title=\"Fazer Comentário Sobre o Filme\" />" +
+                                                        "<input type=\"image\" src=\"../Util/Imagens/ImagensSite/recomendar.png\" title=\"Recomendar Este Filme\" onclick=\"Recomendar('+CONVERT(VARCHAR(8000),f.cod_filme)+'); return false; \"  />" +
+                                                        "<input type=\"image\" style=\"margin-left:20px\" src=\"../Util/Imagens/ImagensSite/comentar.png\" title=\"Fazer Comentário Sobre o Filme\" onclick=\"ExibirElemento('+CONVERT(VARCHAR(8000),f.cod_filme)+'); return false; \" />" +
                                                     "</div></center>" +
                                                 "</td>" +
                                                 "<td valign=\"top\">" +
@@ -36,7 +36,12 @@ namespace Projeto_Recomende.Codes.BLL
                                                     "<strong>Ano de Produção:</strong><span>'+f.ano_producao+'</span><br>" +
                                                     "<strong>Duração:</strong><span>'+f.duracao+'</span><br>" +
                                                     "<strong>Elenco:</strong><span>'+f.elenco+'</span><br>" +
-                                                    "<strong>Sinopse:</strong><span>'+CONVERT(VARCHAR(8000), f.txt_sinopse)+'</span><br>" +
+                                                    "<strong>Sinopse:</strong><span>'+CONVERT(VARCHAR(8000), f.txt_sinopse)+'</span><br><br>" +
+                                                    "<div id=\"Comentario'+CONVERT(VARCHAR(8000),f.cod_filme)+'\" hidden=\"true\"> "+
+                                                        "<strong>Comentário</strong> "+
+                                                        "<textarea style=\"height: 208px;  width: 500px; background-color: #E0E0E0\" cols=\"20\" rows=\"2\"></textarea><br> " +
+                                                        "<input id=\"btnComentario\" type=\"button\" value=\"Comentar\" onclick=\"Comentar('+CONVERT(VARCHAR(8000),f.cod_filme)+',1);\" /> " +
+                                                    "</div> "+
                                                 "</td>" +
                                             "</tr>" +
                                         "</tbody>" +
@@ -49,9 +54,9 @@ namespace Projeto_Recomende.Codes.BLL
                     string where = " WHERE ";
                     string orderBy = "";
 
-                    if (!string.IsNullOrEmpty(nomeFilme))
+                    if (!string.IsNullOrEmpty(nomeFilme) && nomeFilme != "Titulo Do Filme")
                         where += " (f.nm_titulo LIKE '" + nomeFilme + "%') ";
-                    if (!string.IsNullOrEmpty(ator))
+                    if (!string.IsNullOrEmpty(ator) && ator != "Ator")
                         where += " AND f.elenco LIKE '%" + ator + "%'";
                     if (genero != 1)
                         where += " AND f.id_genero = " + genero + " ";
