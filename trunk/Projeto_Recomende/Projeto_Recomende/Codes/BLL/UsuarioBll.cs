@@ -21,19 +21,19 @@ namespace Projeto_Recomende.Codes.BLL
             {
                 userDao = new UsuarioDao();
 
-                if (fotoValida)
-                {
+                //if (fotoValida)
+                //{
                     userDao.CadastrarUsuario(usuario);
                     return "Cadastro realizado com sucesso!";
-                }
-                throw new Exception();
+                //}
+                //throw new Exception();
             }
             catch (Exception ex)
             {
                 return "Usuario Invalido!";
             }
         }
-
+        /*
         public bool verificaFoto(Usuario usuario)
         {
             char[] ext = usuario.end_foto.ToCharArray();
@@ -67,8 +67,8 @@ namespace Projeto_Recomende.Codes.BLL
                 Extencao = "Imagem invalida!";
                 return false;
             }
-
-        }
+            
+        }*/
 
         public bool updateFoto(Usuario usuario)
         {
