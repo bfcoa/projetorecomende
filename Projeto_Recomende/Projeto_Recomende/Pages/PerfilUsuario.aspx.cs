@@ -17,31 +17,17 @@ namespace Projeto_Recomende.Pages
         UsuarioBll userBll;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Session["usuario"] != null)
             {
-                ViewState["usuario"] = Session["usuario"];
-                user = (Usuario)ViewState["usuario"];
-                Session.Remove("usuario");
-                
+                user = (Usuario)Session["usuario"];
+                lblNome.Text = user.nm_usuario;
+                imgPerfil.ImageUrl = user.end_foto;
             }
-            if (ViewState["usuario"] != null)
+            else
             {
-                userBll = new UsuarioBll();
-                user = userBll.loadUsuario(user);
-
-                if (user != null)
-                {
-                    ViewState["usuario"] = user;
-                    lblNome.Text = user.nm_usuario;
-                    imgPerfil.ImageUrl = user.end_foto;
-                }                
-
-                //lblNome.Text = user.nm_usuario;
-                //imgPerfil.ImageUrl = query.ToList<tb_usuario>().ElementAt(0).end_foto;
-
+                Response.Redirect("~/Pages/Home.aspx");
             }
-           /* else
-                Response.Redirect("/Pages/SessaoExpirou.aspx");*/
+
         }
 
         protected void bntConfirma_Click(object sender, EventArgs e)

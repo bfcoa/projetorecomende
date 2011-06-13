@@ -31,8 +31,10 @@
                     <label><asp:Label ID="lblEmail" runat="server" Text="E-MAIL"></asp:Label></label>
                     <asp:TextBox ID="txtEmail" CssClass="txt" runat="server" ForeColor="White"></asp:TextBox>
                     <label><asp:Label ID="lblSenha" runat="server" Text="SENHA"></asp:Label></label>
-                    <asp:TextBox ID="txtSenha" CssClass="txt" runat="server" ForeColor="White" TextMode="Password"></asp:TextBox>
-                    <asp:Button ID="bntLogar" CssClass="btn" runat="server" Text="LOGAR" OnClick="bntLogar_Click" />
+                    <asp:TextBox ID="txtSenha" CssClass="txt" runat="server" ForeColor="White" TextMode="Password"></asp:TextBox>                    
+                    <asp:Button ID="btnLogar" CssClass="btn" runat="server" Text="LOGAR" OnClick="bntLogar_Click" />
+                    <asp:Button ID="btnLogout" CssClass="btn" Visible="false" runat="server" Text="LOGOUT" 
+                        onclick="btnLogout_Click"/>
                     <asp:Label ID="lblMensagem" runat="server" ForeColor="Red"></asp:Label>
                 </p>
                 <h1 class="logo">

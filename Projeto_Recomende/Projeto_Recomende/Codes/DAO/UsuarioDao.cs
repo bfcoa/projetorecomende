@@ -44,7 +44,6 @@ namespace Projeto_Recomende.Codes.DAO
             AdoUtils ado = new AdoUtils();
             //UsuarioBll userBll = new UsuarioBll();
             //string query = "UPDATE tb_usuario SET end_foto = ('../Util/Imagens/ImagensUsuarios/" + usuario.id_usuario + extencao + "') where id_usuario = " + usuario.id_usuario;
-            
             string query = "UPDATE tb_usuario SET end_foto = '"+usuario.end_foto+"' where id_usuario = " + usuario.id_usuario;
             return ado.ExecuteCommand(query);
             //return usuario.end_foto;
@@ -53,22 +52,14 @@ namespace Projeto_Recomende.Codes.DAO
         public Usuario LoadUsuario(string email, string senha)
         {
             Usuario usuario = null;
-            try
-            {
                 string query = "SELECT * FROM tb_usuario WHERE email = '" + email + "' AND senha = '" + senha + "'";
                 AdoUtils ado = new AdoUtils();
-
                 //   Boolean user = ado.ExecuteCommand(query);
                 DataTable dt = ado.GetDataTable(query);
                 if (dt.Rows.Count > 0)
                 {
                     usuario = new Usuario(dt.Rows[0]);
-                }
-            }
-            catch (System.Data.SqlClient.SqlException ex)
-            {
-
-            }
+                }            
             return usuario;
         }
 

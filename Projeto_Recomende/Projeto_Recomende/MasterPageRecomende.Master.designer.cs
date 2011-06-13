@@ -76,13 +76,22 @@ namespace Projeto_Recomende {
         protected global::System.Web.UI.WebControls.TextBox txtSenha;
         
         /// <summary>
-        /// bntLogar control.
+        /// btnLogar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bntLogar;
+        protected global::System.Web.UI.WebControls.Button btnLogar;
+        
+        /// <summary>
+        /// btnLogout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnLogout;
         
         /// <summary>
         /// lblMensagem control.
