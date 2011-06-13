@@ -23,11 +23,14 @@ namespace Projeto_Recomende.Pages
 
         protected void btnAtualizaFoto_Click(object sender, EventArgs e)
         {
-            Usuario user = (Usuario)Session["usuario"];
-            user.end_foto = Server.MapPath(@"~\Util\Imagens\ImagensUsuarios\" + FileUpload1.FileName);
-            UsuarioBll userBll = new UsuarioBll();
-            userBll.updateFoto(user);
-            Response.Redirect("~/Pages/PerfilUsuario.aspx");
+            if (Session["usuario"] != null)
+            {
+                Usuario user = (Usuario)Session["usuario"];
+                user.end_foto = Server.MapPath(@"~\Util\Imagens\ImagensUsuarios\" + FileUpload1.FileName);
+                UsuarioBll userBll = new UsuarioBll();
+                userBll.updateFoto(user);
+                Response.Redirect("~/Pages/PerfilUsuario.aspx");
+            }
         }
     }
 }
