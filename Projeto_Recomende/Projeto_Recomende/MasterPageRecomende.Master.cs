@@ -21,15 +21,23 @@ namespace Projeto_Recomende
             //HtmlGenericControl admControl = new HtmlGenericControl("li");
             //admControl.InnerHtml = "<a href=\"#\" style=\"color:Red \" onClick=\"clickAdm()\">ADM</a>";
             //menuSuperior.Controls.Add(admControl);
-            
-            if (Session["usuario"] != null){
+
+            if (Session["usuario"] != null)
+            {
                 txtEmail.Visible = false;
-                txtSenha.Visible = false;                
+                txtSenha.Visible = false;
                 Usuario user = (Usuario)Session["usuario"];
-                lblEmail.Text = "Bem vindo <b>" +user.nm_usuario + "</b>";
+                lblEmail.Text = "Bem vindo <b>" + user.nm_usuario + "</b>";
                 HyperLinkCadastro.Visible = false;
+                HyperLinkPerfil.Visible = true;
                 btnLogar.Visible = false;
                 btnLogout.Visible = true;
+            }
+            else
+            {
+                HyperLinkCadastro.Visible = true;
+                HyperLinkPerfil.Visible = false;
+
             }
         }
 
@@ -52,8 +60,10 @@ namespace Projeto_Recomende
                 txtSenha.Visible = false;
                 lblEmail.Text = "Bem vindo <b>" + usuario.nm_usuario + "</b>";
                 HyperLinkCadastro.Visible = false;
+                HyperLinkPerfil.Visible = true;
                 btnLogar.Visible = false;
-                btnLogout.Visible = true;                
+                btnLogout.Visible = true;
+                lblSenha.Visible = false;
             }
 
         }
