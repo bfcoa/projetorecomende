@@ -39,14 +39,15 @@ namespace Projeto_Recomende.Codes.DAO
 
 
         }
-        public string UpdateFoto(Usuario usuario, string extencao)
+        public bool UpdateFoto(Usuario usuario)
         {
             AdoUtils ado = new AdoUtils();
             //UsuarioBll userBll = new UsuarioBll();
-
-            string query = "UPDATE tb_usuario SET end_foto = ('../Util/Imagens/ImagensUsuarios/" + usuario.id_usuario + extencao + "') where id_usuario = " + usuario.id_usuario;
-            ado.ExecuteCommand(query);
-            return usuario.end_foto;
+            //string query = "UPDATE tb_usuario SET end_foto = ('../Util/Imagens/ImagensUsuarios/" + usuario.id_usuario + extencao + "') where id_usuario = " + usuario.id_usuario;
+            
+            string query = "UPDATE tb_usuario SET end_foto = '"+usuario.end_foto+"' where id_usuario = " + usuario.id_usuario;
+            return ado.ExecuteCommand(query);
+            //return usuario.end_foto;
         }
 
         public Usuario LoadUsuario(string email, string senha)
@@ -76,7 +77,6 @@ namespace Projeto_Recomende.Codes.DAO
             AdoUtils ado = new AdoUtils();
             string query = "UPDATE tb_usuario SET nm_usuario = ('" + usuario.nm_usuario + "'), email = ('" + usuario.email + "'), senha = ('" + usuario.senha + "') where id_usuario = " + usuario.id_usuario;
             ado.ExecuteCommand(query);
-
             return usuario;
         }
     }

@@ -84,6 +84,7 @@
     <Content Include="Util\Imagens\ImagensSite\icon1.png" />
     <Content Include="Util\Imagens\ImagensSite\icon2.png" />
     <Content Include="Util\Imagens\ImagensSite\icon3.png" />
+    <Content Include="Util\Imagens\ImagensSite\semfoto.jpg" />
     <Content Include="Util\Imagens\ImagensSite\logo.png" />
     <Content Include="Util\Imagens\ImagensSite\logohover.png" />
     <Content Include="Util\Imagens\ImagensSite\pat.png" />
@@ -208,6 +209,7 @@
     <Compile Include="Codes\DAO\UsuarioDao.cs" />
     <Compile Include="Codes\OBJ\Comentario.cs" />
     <Compile Include="Codes\OBJ\Filme.cs" />
+    <Compile Include="Codes\OBJ\Foto.cs" />
     <Compile Include="Codes\OBJ\Noticia.cs" />
     <Compile Include="Codes\OBJ\Usuario.cs" />
     <Compile Include="MasterPageRecomende.Master.cs">
