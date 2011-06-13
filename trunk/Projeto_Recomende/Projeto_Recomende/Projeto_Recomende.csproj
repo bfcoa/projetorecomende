@@ -198,12 +198,15 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Codes\BLL\ComentarioBll.cs" />
     <Compile Include="Codes\BLL\FilmeBll.cs" />
     <Compile Include="Codes\BLL\NoticiaBll.cs" />
     <Compile Include="Codes\BLL\UsuarioBll.cs" />
+    <Compile Include="Codes\DAO\ComentarioDao.cs" />
     <Compile Include="Codes\DAO\FilmeDao.cs" />
     <Compile Include="Codes\DAO\NoticiaDao.cs" />
     <Compile Include="Codes\DAO\UsuarioDao.cs" />
+    <Compile Include="Codes\OBJ\Comentario.cs" />
     <Compile Include="Codes\OBJ\Filme.cs" />
     <Compile Include="Codes\OBJ\Noticia.cs" />
     <Compile Include="Codes\OBJ\Usuario.cs" />
@@ -242,9 +245,6 @@
     <Compile Include="Pages\CadastroUsuario.aspx.designer.cs">
       <DependentUpon>CadastroUsuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ExtHandler.ashx.cs">
-      <DependentUpon>ExtHandler.ashx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -258,6 +258,9 @@
     </Compile>
     <Compile Include="Pages\IndicacaoFilmesSistema.aspx.designer.cs">
       <DependentUpon>IndicacaoFilmesSistema.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\JqueryHandler.ashx.cs">
+      <DependentUpon>JqueryHandler.ashx</DependentUpon>
     </Compile>
     <Compile Include="Pages\PerfilUsuario.aspx.cs">
       <DependentUpon>PerfilUsuario.aspx</DependentUpon>
@@ -296,13 +299,11 @@
     <Content Include="MasterPageRecomende.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pages\ExtHandler.ashx" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Util\Imagens\ImagensFilmes\" />
     <Folder Include="Util\Imagens\ImagensUsuarios\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Pages\JqueryHandler.ashx" />
     <None Include="Util\Cuber\config.xml_" />
     <None Include="Util\Scrypts\lightbox2.05\js\.DS_Store" />
     <None Include="Util\Scrypts\lightbox2.05\__MACOSX\._js" />

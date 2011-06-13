@@ -1,12 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageRecomende.Master" AutoEventWireup="True"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageRecomende.Master" AutoEventWireup="False"
     CodeBehind="BuscarFilmes.aspx.cs" Inherits="Projeto_Recomende.Pages.BuscarFilmes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="../Util/Scrypts/jquery/extensao/themes/base/jquery.ui.all.css" rel="stylesheet"
-        type="text/css" />
     <script src="../Util/Scrypts/jquery/jquery-1.5.2.js" type="text/javascript"></script>
     <script src="../Util/Scrypts/funcoes.js" type="text/javascript"></script>
-    
     <%--<style type="text/css">
 #filtroAvancado
 {    
@@ -34,6 +31,10 @@ text-align: center;
 padding: 5px;
 }
 </style>--%>
+
+<script language="javascript">
+    
+</script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBanner" runat="server">
 </asp:Content>
@@ -96,7 +97,7 @@ padding: 5px;
                     <asp:Button ID="bntBuscar" runat="server" CssClass="btn" Text="Buscar Filme" OnClick="bntBuscar_Click" />
                 </div>
             </div>
-            <div id="divFilmesResult" runat="server" visible="true" style="padding: 5px; background-color: White;
+            <div id="divFilmesResult" runat="server" visible="false" style="padding: 5px; background-color: White;
                 margin-top: 10px; clear: both">
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:danilos5ConnectionString %>">
                 </asp:SqlDataSource>
@@ -107,8 +108,9 @@ padding: 5px;
                         <asp:BoundField DataField="trFilme" HtmlEncode="false" HtmlEncodeFormatString="false"
                             HeaderText="Resultados Da Sua Busca:" SortExpression="trFilme" />
                     </Columns>
-                </asp:GridView>
-                <table>
+                </asp:GridView>                
+            </div>
+            <%--<table>
                     <tbody>
                         <tr>
                             <td style="width: 120px; height: 120px;">
@@ -117,7 +119,7 @@ padding: 5px;
                                 <center>
                                     <br />
                                     <div>
-                                        <input runat="server" type="image" class="btnRecomendar" src="../Util/Imagens/ImagensSite/recomendar.png"
+                                        <input id="Image1" runat="server" type="image" class="btnRecomendar" src="../Util/Imagens/ImagensSite/recomendar.png"
                                             title="Recomendar Este Filme" onclick="Recomendar(1101);" />
                                         <input type="image" style="margin-left: 20px" src="../Util/Imagens/ImagensSite/comentar.png"
                                             title="Fazer Comentário Sobre o Filme" />
@@ -125,18 +127,24 @@ padding: 5px;
                                 </center>
                             </td>
                             <td valign="top">
-                                <strong>Titulo:</strong><span>'+f.nm_titulo'</span><br>
+                                <strong>Titulo:</strong><span>'+f.nm_titulo'</span><br 
+                                    style="height: 208px; width: 500px; background-color: #FFFFCC;">
                                 <strong>Titulo Original:</strong><span>'+f.nm_tituloOriginal+'</span><br>
                                 <strong>Gênero:</strong><span>'+g.tp_genero+'</span><br>
                                 <strong>Ano de Produção:</strong><span>'+f.ano_producao+'</span><br>
                                 <strong>Duração:</strong><span>'+f.duracao+'</span><br>
                                 <strong>Elenco:</strong><span>'+f.elenco+'</span><br>
                                 <strong>Sinopse:</strong><span>'+CONVERT(VARCHAR(8000), f.txt_sinopse)+'</span><br>
+                                <div id="Comentario" hidden="true">
+                                    <textarea id="divComentario" 
+                                        style="height: 208px; width: 500px; background-color: #E0E0E0;" 
+                                        onfocus="this.value='';" cols="20" rows="2">Digite aqui sua mensagem</textarea>
+                                    <input id="btnComentario" type="button" value="Comentar" onclick="Comentar(1,1);" />
+                                </div>
                             </td>
                         </tr>
                     </tbody>
-                </table>
-            </div>
+                </table>--%>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

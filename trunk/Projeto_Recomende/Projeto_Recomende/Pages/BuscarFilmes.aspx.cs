@@ -25,6 +25,7 @@ namespace Projeto_Recomende.Pages
                 SqlDataSource1.SelectCommand = query;
                 SqlDataSource1.DataBind();
                 GridView1.DataBind();
+                divFilmesResult.Visible = true;
                 lblMensagem.Text = "";
                 lblMensagem.Visible = false;
             }
@@ -100,6 +101,7 @@ namespace Projeto_Recomende.Pages
                 SqlDataSource1.SelectCommand = query;
                 SqlDataSource1.DataBind();
                 GridView1.DataBind();
+                divFilmesResult.Visible = true;
                 lblMensagem.Text = "";
                 lblMensagem.Visible = false;
             }
