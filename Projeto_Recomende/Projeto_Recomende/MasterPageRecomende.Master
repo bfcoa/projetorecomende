@@ -26,12 +26,11 @@
     <div id="head">
         <div id="head_cen">
             <div id="head_sup" class="head_height">
+
                 <p class="search">
-                    <label>
-                        E-MAIL</label>
+                    <label><asp:Label ID="lblEmail" runat="server" Text="E-MAIL"></asp:Label></label>
                     <asp:TextBox ID="txtEmail" CssClass="txt" runat="server" ForeColor="White"></asp:TextBox>
-                    <label>
-                        SENHA</label>
+                    <label><asp:Label ID="lblSenha" runat="server" Text="SENHA"></asp:Label></label>
                     <asp:TextBox ID="txtSenha" CssClass="txt" runat="server" ForeColor="White" TextMode="Password"></asp:TextBox>
                     <asp:Button ID="bntLogar" CssClass="btn" runat="server" Text="LOGAR" OnClick="bntLogar_Click" />
                     <asp:Label ID="lblMensagem" runat="server" ForeColor="Red"></asp:Label>
@@ -45,7 +44,8 @@
                     <li><a href="BuscarFilmes.aspx">FILMES</a></li>
                     <li><a href="Sac.aspx">CONTATO</a></li>
                     <li><a href="#">LOGIN</a></li>
-                    <li><a href="CadastroUsuario.aspx">CADASTRE-SE</a></li>
+                    <li><asp:HyperLink ID="HyperLinkCadastro"
+                        runat="server" NavigateUrl="~/Pages/CadastroUsuario.aspx">CADASTRE-SE</asp:HyperLink></li>
                 </ul>
                 <%--Fim dos Menus--%>
 
@@ -60,6 +60,8 @@
                  <%--Fim Do Cubo 3D--%>
 
                 <asp:ContentPlaceHolder ID="cphBanner" runat="server">
+                    
+
                     
                 </asp:ContentPlaceHolder>
             </div>
