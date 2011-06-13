@@ -15,15 +15,15 @@ namespace Projeto_Recomende.Codes.DAO
         public bool CadastrarUsuario(Usuario usuario)
         {
             AdoUtils ado = new AdoUtils();
-            string query = "INSERT INTO tb_usuario (nm_usuario, email, senha, tipo_usuario, end_foto) " +
-                           "VALUES (@nm_usuario, @email, @senha, @tipo_usuario, @end_foto);";
+            string query = "INSERT INTO tb_usuario (nm_usuario, email, senha, tipo_usuario) " +
+                           "VALUES (@nm_usuario, @email, @senha, @tipo_usuario);";
             List<KeyValuePair<string, object>> parametros = new List<KeyValuePair<string, object>>();
             parametros.Add(new KeyValuePair<string, object>("@nm_usuario", usuario.nm_usuario));
             parametros.Add(new KeyValuePair<string, object>("@email", usuario.email));
             parametros.Add(new KeyValuePair<string, object>("@senha", usuario.senha));
             //parametros.Add(new KeyValuePair<string, object>("@id_usuario", usuario.id_usuario));
             parametros.Add(new KeyValuePair<string, object>("@tipo_usuario", usuario.tipo_usuario));
-            parametros.Add(new KeyValuePair<string, object>("@end_foto", usuario.end_foto));
+            //parametros.Add(new KeyValuePair<string, object>("@end_foto", usuario.end_foto));
             int codUsuario = 0;
             if (ado.ExecuteCommand(query, parametros.ToArray()))
             {
