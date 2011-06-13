@@ -84,6 +84,8 @@ namespace Projeto_Recomende.Pages
                     {
                         if (foto.FotoValida)
                             AsyncFileUpload1.SaveAs(Server.MapPath(user.end_foto));
+                        Session["usuario"] = user;
+                        Response.Redirect("~/Pages/PerfilUsuario.aspx");
                     }
                     else
                     {
