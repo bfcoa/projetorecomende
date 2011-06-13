@@ -132,7 +132,7 @@ namespace Projeto_Recomende.Pages
                         {
                             AsyncFileUpload1.SaveAs(Server.MapPath(user.end_foto));                      
                         }
-                        else if (File.Exists(Server.MapPath(user.end_foto) )&& foto.FotoValida == false )
+                        else if (File.Exists(Server.MapPath(user.end_foto)) && foto.FotoValida == false && user.end_foto != @"../Util/Imagens/ImagensSite/semfoto.jpg")
                         {
                             File.Delete(user.end_foto);                        
                         }
