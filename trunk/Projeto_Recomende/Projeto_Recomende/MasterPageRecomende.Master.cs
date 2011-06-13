@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using Projeto_Recomende.Codes.OBJ;
+using Projeto_Recomende.Codes.BLL;
 
 namespace Projeto_Recomende
 {
@@ -19,6 +21,15 @@ namespace Projeto_Recomende
             //HtmlGenericControl admControl = new HtmlGenericControl("li");
             //admControl.InnerHtml = "<a href=\"#\" style=\"color:Red \" onClick=\"clickAdm()\">ADM</a>";
             //menuSuperior.Controls.Add(admControl);
+            if (Session["User"] != null){
+                txtEmail.Visible = false;
+                txtSenha.Visible = false;
+                txtSenha.Visible = false;
+
+                Usuario user = (Usuario)ViewState["usuario"];
+                lblEmail.Text = "Bem vindo <b>" +user.nm_usuario + "</b>";
+                HyperLinkCadastro.Visible = false;
+            }
         }
         //tb_usuario user = new tb_usuario();
 
