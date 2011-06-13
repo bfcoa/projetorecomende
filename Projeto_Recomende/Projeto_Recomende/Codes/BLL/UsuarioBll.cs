@@ -67,9 +67,14 @@ namespace Projeto_Recomende.Codes.BLL
 
         private bool VerificaFoto(Foto foto)
         {
-            string extensao = foto.NomeFoto.Split('.')[foto.NomeFoto.Split('.').Length - 1];
-            if (extensao.ToLower().Equals("jpeg") || extensao.ToLower().Equals("jpg") || extensao.ToLower().Equals("bmp") || extensao.ToLower().Equals("gif") || extensao.ToLower().Equals("png"))
-                foto.FotoValida = true;
+            if (!string.IsNullOrEmpty(foto.NomeFoto))
+            {
+                string extensao = foto.NomeFoto.Split('.')[foto.NomeFoto.Split('.').Length - 1];
+                if (extensao.ToLower().Equals("jpeg") || extensao.ToLower().Equals("jpg") || extensao.ToLower().Equals("bmp") || extensao.ToLower().Equals("gif") || extensao.ToLower().Equals("png"))
+                    foto.FotoValida = true;
+                else
+                    throw new Exception("Formato de foto inválido");
+            }
             return foto.FotoValida;
         }
 
