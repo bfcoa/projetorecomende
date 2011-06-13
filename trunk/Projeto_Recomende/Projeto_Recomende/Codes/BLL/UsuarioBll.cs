@@ -65,7 +65,7 @@ namespace Projeto_Recomende.Codes.BLL
             }
         }
 
-        public bool updateDadosUsuario(Usuario usuario, string confSenha, Foto foto, out string mensagemResposta)
+        public bool updateDadosUsuario(Usuario usuario, string senha, string confSenha, Foto foto, out string mensagemResposta)
         {
             mensagemResposta = "";
             try
@@ -79,7 +79,7 @@ namespace Projeto_Recomende.Codes.BLL
                 if (string.IsNullOrEmpty(usuario.senha))
                     throw new Exception("Senha não pode ser vazia");
 
-                if (!usuario.senha.Equals(confSenha))
+                if (!senha.Equals(confSenha))
                     throw new Exception("As senhas não conferem");
 
 
@@ -95,7 +95,6 @@ namespace Projeto_Recomende.Codes.BLL
                 }
                 else
                 {
-                    usuario.end_foto = "Sem Foto";
                     dao.UpdateFoto(usuario);
                     dao.UpdateDadosUsuario(usuario);
                 }

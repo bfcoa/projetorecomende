@@ -116,7 +116,17 @@ namespace Projeto_Recomende.Pages
                     userBll = new UsuarioBll();
                     user = (Usuario)Session["usuario"];
 
-                    if (userBll.updateDadosUsuario(user, txtConfirmaSenha.Text, foto, out mensagemErro))
+                    user.nm_usuario = txtNome.Text;
+                    user.senha = txtSenha.Text;
+                    user.email = txtEmail.Text;
+                    user.end_foto = @"../Util/Imagens/ImagensSite/semfoto.jpg";
+                    user.tipo_usuario = "usuario";
+
+                    foto = new Foto();
+                    foto.NomeFoto = AsyncFileUpload1.FileName;
+                    foto.FotoValida = false;
+
+                    if (userBll.updateDadosUsuario(user,txtSenha.Text, txtConfirmaSenha.Text, foto, out mensagemErro))
                     {
                         if (foto.FotoValida)
                         {
