@@ -17,7 +17,7 @@ namespace Projeto_Recomende.Codes.BLL
         public string Extencao { get; set; }
 
 
-        public bool CadastrarUsuario(Usuario usuario, string confSenha , Foto foto, out string mensagemResposta)
+        public bool CadastrarUsuario(Usuario usuario, string confSenha, Foto foto, out string mensagemResposta)
         {
             mensagemResposta = "";
             try
@@ -62,8 +62,73 @@ namespace Projeto_Recomende.Codes.BLL
             {
                 mensagemResposta = ex.Message;
                 return false;
-            }            
+            }
         }
+
+        public bool updateDadosUsuario(Usuario usuario, string confSenha, Foto foto, out string mensagemResposta)
+        {
+            mensagemResposta = "";
+            try
+            {
+                if (string.IsNullOrEmpty(usuario.nm_usuario))
+                    throw new Exception("Nome não pode ser vazio!");
+
+                if (string.IsNullOrEmpty(usuario.email) || !usuario.email.Contains("@"))
+                    throw new Exception("Email inválido!");
+
+                if (string.IsNullOrEmpty(usuario.senha))
+                    throw new Exception("Senha não pode ser vazia");
+
+                if (!usuario.senha.Equals(confSenha))
+                    throw new Exception("As senhas não conferem");
+
+
+                UsuarioDao dao = new UsuarioDao();
+
+                if (VerificaFoto(foto))
+                {
+                    if (dao.UpdateDadosUsuario(usuario) != null)
+                    {
+                        usuario.end_foto = @"../Util/Imagens/ImagensUsuarios/" + usuario.id_usuario + "." + foto.NomeFoto.Split('.')[foto.NomeFoto.Split('.').Length - 1];
+                        dao.UpdateFoto(usuario);
+                    }
+                }
+                else
+                {
+                    usuario.end_foto = "Sem Foto";
+                    dao.UpdateFoto(usuario);
+                    dao.UpdateDadosUsuario(usuario);
+                }
+                return true;
+            }
+            catch (System.Data.SqlClient.SqlException sqlEx)
+            {
+                mensagemResposta = "Houve um erro ao inserir o usuário no Banco de dados. <br>\n Número do erro: " + sqlEx.Number;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                mensagemResposta = ex.Message;
+                return false;
+            }
+        }
+
+        #region Comentario
+        /*if (usuario != null)
+            {
+                userDao = new UsuarioDao();
+                usuario = userDao.UpdateDadosUsuario(usuario);
+
+                if (usuario != null)
+                {
+                    user = usuario;
+
+                    return true;
+                } */
+
+        #endregion
+
+
 
         private bool VerificaFoto(Foto foto)
         {
@@ -146,23 +211,7 @@ namespace Projeto_Recomende.Codes.BLL
         //    return false;
         //}
 
-        public bool updateDadosUsuario(Usuario usuario)
-        {
 
-            if (usuario != null)
-            {
-                userDao = new UsuarioDao();
-                usuario = userDao.UpdateDadosUsuario(usuario);
-
-                if (usuario != null)
-                {
-                    user = usuario;
-
-                    return true;
-                }
-            }
-            return false;
-        }
 
         public Usuario loadUsuario(Usuario usuario)
         {

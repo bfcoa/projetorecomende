@@ -29,12 +29,27 @@ namespace Projeto_Recomende
                 Usuario user = (Usuario)ViewState["usuario"];
                 lblEmail.Text = "Bem vindo <b>" +user.nm_usuario + "</b>";
                 HyperLinkCadastro.Visible = false;
+
+                if (Session["User"] != null)
+                {
+                    bntLogar.Text = "Logout";
+                }
             }
         }
         //tb_usuario user = new tb_usuario();
 
         protected void bntLogar_Click(object sender, EventArgs e)
         {
+            if (bntLogar.Text != "Logout")
+            {
+
+            }
+            else
+            {
+                Session["User"] = null;
+                Response.Redirect("/Pages/Home.aspx");
+            }
+            
             //var query = from user in entities.tb_usuario
             //            where user.email == txtEmail.Text && user.senha == txtSenha.Text
             //            select user;

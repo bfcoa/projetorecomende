@@ -64,9 +64,11 @@ namespace Projeto_Recomende.Pages
         {
             try
             {
+                string mensagemErro = "";   
+
                 if (cadastroNovo == true)
                 {
-                    string mensagemErro = "";                    
+                                     
                     user = new Usuario();
                     
                     userBll = new UsuarioBll();
@@ -107,12 +109,25 @@ namespace Projeto_Recomende.Pages
                     //userBll.CadastrarUsuario(false, user);
                     #endregion
                 }
-                else
+                else // cadastro velho
                 {
                     //aqui estará a edição né?
+                    
+                    userBll = new UsuarioBll();
+                    user = (Usuario)Session["usuario"];
+
+                    if (userBll.updateDadosUsuario(user, txtConfirmaSenha.Text, foto, out mensagemErro))
+                    {
+                        if (foto.FotoValida)
+                        {
+                            AsyncFileUpload1.SaveAs(Server.MapPath(user.end_foto));                      
+                        }
+                        else if (File.Exists(Server.MapPath(user.end_foto) )&& foto.FotoValida == false )
+                        {
+                            File.Delete(user.end_foto);                        
+                        }
+                    }
                     #region Comentado
-                    //userBll = new UsuarioBll();
-                    //user = (Usuario)Session["usuario"];
                     ////bool fotoValida = userBll.verificaFoto(user);
                     ////if (fotoValida)
                     ////{
