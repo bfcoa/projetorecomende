@@ -21,52 +21,52 @@ namespace Projeto_Recomende
             //HtmlGenericControl admControl = new HtmlGenericControl("li");
             //admControl.InnerHtml = "<a href=\"#\" style=\"color:Red \" onClick=\"clickAdm()\">ADM</a>";
             //menuSuperior.Controls.Add(admControl);
-            if (Session["User"] != null){
+            
+            if (Session["usuario"] != null){
                 txtEmail.Visible = false;
-                txtSenha.Visible = false;
-                txtSenha.Visible = false;
-
-                Usuario user = (Usuario)ViewState["usuario"];
+                txtSenha.Visible = false;                
+                Usuario user = (Usuario)Session["usuario"];
                 lblEmail.Text = "Bem vindo <b>" +user.nm_usuario + "</b>";
                 HyperLinkCadastro.Visible = false;
-
-                if (Session["User"] != null)
-                {
-                    bntLogar.Text = "Logout";
-                }
+                btnLogar.Visible = false;
+                btnLogout.Visible = true;
             }
         }
-        //tb_usuario user = new tb_usuario();
 
         protected void bntLogar_Click(object sender, EventArgs e)
         {
-            if (bntLogar.Text != "Logout")
+            UsuarioBll bll = new UsuarioBll();
+            string mensagemErro = "";
+            Usuario usuario = bll.loadUsuario(txtEmail.Text, txtSenha.Text, out mensagemErro);
+            if (usuario == null)
             {
-
+                lblMensagem.Text = mensagemErro;
+                lblMensagem.Visible = true;
             }
             else
             {
-                Session["User"] = null;
-                Response.Redirect("/Pages/Home.aspx");
+                lblMensagem.Text = "";
+                lblMensagem.Visible = false;
+                Session["usuario"] = usuario;
+                txtEmail.Visible = false;
+                txtSenha.Visible = false;
+                lblEmail.Text = "Bem vindo <b>" + usuario.nm_usuario + "</b>";
+                HyperLinkCadastro.Visible = false;
+                btnLogar.Visible = false;
+                btnLogout.Visible = true;                
             }
-            
-            //var query = from user in entities.tb_usuario
-            //            where user.email == txtEmail.Text && user.senha == txtSenha.Text
-            //            select user;
 
-            //if (query.ToList<tb_usuario>().Count == 1)
-            //{
-            //    user = query.ToList<tb_usuario>().ElementAt(0);
-            //    Session["usuario"] = user;
-            //    // Session["Email"] = query.ToList<tb_usuario>().ElementAt(0).email;
-            //    // Session["Senha"] = query.ToList<tb_usuario>().ElementAt(0).senha;
-            //    Response.Redirect("../Pages/PerfilUsuario.aspx");
-            //}
-            //else
-            //{
-            //    lblMensagem.Text = "Email ou senha incorretos!";
-            //}
+        }
 
+        protected void btnLogout_Click(object sender, EventArgs e)
+        {
+            Session["usuario"] = null;
+            txtEmail.Visible = true;
+            txtSenha.Visible = true;
+            lblEmail.Text = "E-MAIL";            
+            btnLogar.Visible = true;
+            btnLogout.Visible = false;
+            Response.Redirect("~/Pages/Home.aspx");
         }
     }
 }

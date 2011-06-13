@@ -218,40 +218,39 @@ namespace Projeto_Recomende.Codes.BLL
             try
             {
                 userDao = new UsuarioDao();
-
                 user = userDao.LoadUsuario(usuario.email, usuario.senha);
                 if (user != null)
-                {
                     return user;
-                }
 
             }
             catch (Exception ex)
             {
 
             }
-
-            return null;
+            return user;
         }
-        public Usuario loadUsuario(string email, string senha)
+        public Usuario loadUsuario(string email, string senha, out string mensagemErro)
         {
+            mensagemErro = "";
             try
             {
                 userDao = new UsuarioDao();
-
                 user = userDao.LoadUsuario(email, senha);
                 if (user != null)
+                    return user;
+                else
                 {
+                    mensagemErro = "Usuário Inválido!!";
                     return user;
                 }
-
+                    
             }
             catch (Exception ex)
             {
-
+                mensagemErro = "Erro ao carregar usuário! <br> Mensagem do erro: "+ex.Message;
+                return null;
             }
-
-            return null;
+            
         }
     }
 }
