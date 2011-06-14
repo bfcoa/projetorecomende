@@ -32,7 +32,7 @@ namespace Projeto_Recomende.Pages
                 Email objEmail = new Email();
                 
                 objEmail.EnviarEmail(ConfigurationManager.AppSettings["emailReceiver"],
-                    "", "", tbxEMail.Text, "", "Contato Recomende: " + ddlAssunto.SelectedValue.Trim(), tbxMensagem.Text, false,
+                    tbxEMail.Text, "", "Contato Recomende: " + ddlAssunto.SelectedValue.Trim(), tbxMensagem.Text, false,
                     System.Net.Mail.MailPriority.High);
 
                 btnEnviar.Visible = false;
