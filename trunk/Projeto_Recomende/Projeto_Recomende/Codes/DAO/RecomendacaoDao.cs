@@ -29,7 +29,7 @@ namespace Projeto_Recomende.Codes.DAO
             parametros.Add(new KeyValuePair<string, object>("@id_usuario", id_usuario));
             parametros.Add(new KeyValuePair<string, object>("@cod_filme", cod_filme));
             AdoUtils ado = new AdoUtils();
-            DataTable dt = ado.GetDataTable(query);
+            DataTable dt = ado.GetDataTable(query, parametros.ToArray());
             if (dt.Rows.Count >= 1)
             {
                 recomendacao = new Recomendacao(dt.Rows[0]);

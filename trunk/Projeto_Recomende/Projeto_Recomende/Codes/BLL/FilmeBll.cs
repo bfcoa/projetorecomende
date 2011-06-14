@@ -10,7 +10,7 @@ namespace Projeto_Recomende.Codes.BLL
     public class FilmeBll
     {
 
-        public string BuscarFilmes(string nomeFilme, string ator, int genero, int ordenarPor)
+        public string BuscarFilmes(int id_usuario, string nomeFilme, string ator, int genero, int ordenarPor)
         {
             string query = "";
             if (!string.IsNullOrEmpty(nomeFilme.Trim()) && nomeFilme != "Titulo Do Filme" || !string.IsNullOrEmpty(ator.Trim()) && ator != "Ator")
@@ -25,8 +25,8 @@ namespace Projeto_Recomende.Codes.BLL
                                                     "<img width=\"120px\" src=\"../Util/Imagens/ImagensFilmes/'+f.foto+'\" style=\"margin: 0px\"" +
                                                         "alt=\"Não há foto disponível\">" +
                                                     "<center><br /><div> " +
-                                                        "<input type=\"image\" src=\"../Util/Imagens/ImagensSite/recomendar.png\" title=\"Recomendar Este Filme\" onclick=\"Recomendar('+CONVERT(VARCHAR(8000),f.cod_filme)+'); return false; \"  />" +
-                                                        "<input type=\"image\" style=\"margin-left:20px\" src=\"../Util/Imagens/ImagensSite/comentar.png\" title=\"Fazer Comentário Sobre o Filme\" onclick=\"ExibirElemento('+CONVERT(VARCHAR(8000),f.cod_filme)+'); return false; \" />" +
+                                                        "<input type=\"image\" src=\"../Util/Imagens/ImagensSite/recomendar.png\" title=\"Recomendar Este Filme\" onclick=\"Recomendar('+CONVERT(VARCHAR(8000),f.cod_filme)+', "+id_usuario+"); return false; \"  />" +
+                                                        "<input type=\"image\" style=\"margin-left:20px\" src=\"../Util/Imagens/ImagensSite/comentar.png\" title=\"Fazer Comentário Sobre o Filme\" onclick=\"ExibirElemento('+CONVERT(VARCHAR(8000),f.cod_filme)+'," + id_usuario + "); return false; \" />" +
                                                     "</div></center>" +
                                                 "</td>" +
                                                 "<td valign=\"top\">" +
