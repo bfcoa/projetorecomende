@@ -13,7 +13,10 @@ namespace Projeto_Recomende.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Session["usuario"] == null){
+                //Response.Redirect("~/Pages/Home.aspx");
+                Response.Redirect("~/Pages/SessaoExpirou.aspx");
+            }
         }
 
         protected void GridView1_PageIndexChanged(object sender, EventArgs e)

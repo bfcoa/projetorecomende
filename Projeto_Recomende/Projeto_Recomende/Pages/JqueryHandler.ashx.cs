@@ -15,26 +15,29 @@ namespace Projeto_Recomende.Pages
 
         public void ProcessRequest(HttpContext context)
         {
+            Usuario usuario = (Usuario)context.Session["usuario"];
             string action = context.Request.Params["action"];
-            
-
+            string cod_filme = "0";
+            string mensagemResposta = "0";
             switch (action)
             {
                 case "Recomendar":
+                    cod_filme = context.Request.Params["cod_filme"];
+                    RecomendacaoBll recomendacaobll = new RecomendacaoBll();
+                    if(recomendacaobll.Recomendar(usuario.id_usuario, int.Parse(cod_filme), out mensagemResposta)){
+                        context.Response.Write("1");
+                    }else{
+                        context.Response.Write(mensagemResposta);
+                    }
                     break;
-                case "Comentar":
-                    //Usuario usuario = (Usuario)context.Session["usuario"];
-                    int idUsuario = 1;
-                    string cod_filme = context.Request.Params["cod_filme"];
+                case "Comentar":                    
+                    cod_filme = context.Request.Params["cod_filme"];
                     string comentario = context.Request.Params["comentario"];
-                    string mensagemResposta = "";
-                    ComentarioBll bll = new ComentarioBll();
-                    if (bll.PostarComentario(idUsuario, int.Parse(cod_filme), comentario, out mensagemResposta))
+                    ComentarioBll comentarioBll = new ComentarioBll();
+                    if (comentarioBll.PostarComentario(usuario.id_usuario, int.Parse(cod_filme), comentario, out mensagemResposta))
                     {
                         context.Response.Write("1");
-                    }
-                    else
-                    {
+                    }else{
                         context.Response.Write(mensagemResposta);
                     }
                     break;

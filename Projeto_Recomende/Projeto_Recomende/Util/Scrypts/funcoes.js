@@ -1,11 +1,15 @@
-﻿function Recomendar(cod_filme) {    
+﻿function Recomendar(cod_filme) {
     $.ajax({
         type: 'POST',
         url: "JqueryHandler.ashx?action=Recomendar&cod_filme=" + cod_filme,
         contentType: 'application/json',
         context: document.body,
         success: function (retorno) {
-            alert('Sua recomendação foi postada com sucesso!');
+            if (retorno == "1") {
+                alert('Sua recomendação foi postada com sucesso!');
+            } else {
+                alert(retorno);
+            }
         }
     });    
 }
@@ -21,7 +25,7 @@ function Comentar(cod_filme) {
                 alert('Seu comentário foi postado com sucesso!');
                 OcultarElemento(cod_filme);
             } else {
-                alert('Desculpe, mas seu comentário não foi postado!!');
+                alert(retorno);
             }
         }
     });

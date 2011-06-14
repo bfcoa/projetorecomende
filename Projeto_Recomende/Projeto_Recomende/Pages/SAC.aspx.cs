@@ -13,7 +13,7 @@ namespace Projeto_Recomende.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (false) // Verifica se existe uma Sessão de usuário logado
+            if (Session["usuario"] != null) // Verifica se existe uma Sessão de usuário logado
             {
                 tbxNome.Text = "NomeCliente";
                 tbxEMail.Text = "EmailCliente";
