@@ -70,5 +70,13 @@ namespace Projeto_Recomende.Codes.DAO
             ado.ExecuteCommand(query);
             return usuario;
         }
+
+
+        public void InsertUsuarioGrupo(int grupo, Usuario user)
+        {
+            AdoUtils ado = new AdoUtils();
+            string query = "UPDATE tb_usuario SET id_grupo =('" + grupo +"') where id_usuario = " + user.id_usuario;
+            ado.ExecuteCommand(query);
+        }
     }
 }

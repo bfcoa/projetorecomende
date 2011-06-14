@@ -251,5 +251,35 @@ namespace Projeto_Recomende.Codes.BLL
             }
             
         }
+
+        public bool insertGRupo(Grupo grupo, Usuario user)
+        {
+            userDao = new UsuarioDao();
+            try
+            {
+                if (grupo != null)
+                {
+                    if(grupo.Grup == 'a')
+                    userDao.InsertUsuarioGrupo(1, user);
+                    else if(grupo.Grup == 'b')
+                        userDao.InsertUsuarioGrupo(2, user);
+                    else
+                        userDao.InsertUsuarioGrupo(3, user);
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+
+        
+
     }
 }
