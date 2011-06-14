@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Projeto_Recomende.Codes.BLL;
+using Projeto_Recomende.Codes.OBJ;
 using Projeto_Recomende.Util;
 
 namespace Projeto_Recomende.Pages
@@ -18,8 +19,24 @@ namespace Projeto_Recomende.Pages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            NoticiaBll bll = new NoticiaBll();
-            bll.PostarNoticia(txtTitulo.Text, Editor1.Content);
+            if (Session["usuario"] != null)
+            {
+                string mesnagemErro = "";
+                Usuario usuario = (Usuario)Session["usuario"];
+                NoticiaBll bll = new NoticiaBll();
+                if (!bll.PostarNoticia(usuario.id_usuario, txtTitulo.Text, Editor1.Content, out mesnagemErro))
+                {
+                    lblMensagem.Text = mesnagemErro;
+                    lblMensagem.Visible = true;
+                }
+            }
+            else
+            {
+                Response.Redirect("~/Pages/SessaoExpirou.aspx");
+            }
+
+            
+                
         }
     }
 }

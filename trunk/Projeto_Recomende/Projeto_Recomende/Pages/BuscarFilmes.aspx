@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageRecomende.Master" AutoEventWireup="False"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPageRecomende.Master" AutoEventWireup="true"
     CodeBehind="BuscarFilmes.aspx.cs" Inherits="Projeto_Recomende.Pages.BuscarFilmes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">

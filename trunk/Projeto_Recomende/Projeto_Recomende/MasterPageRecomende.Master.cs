@@ -32,38 +32,51 @@ namespace Projeto_Recomende
                 HyperLinkPerfil.Visible = true;
                 btnLogar.Visible = false;
                 btnLogout.Visible = true;
+                if (user.tipo_usuario == "")
+                {
+
+                }
             }
             else
             {
                 HyperLinkCadastro.Visible = true;
                 HyperLinkPerfil.Visible = false;
+                HyperLinkAdm.Visible = false;
 
             }
         }
 
         protected void bntLogar_Click(object sender, EventArgs e)
         {
-            UsuarioBll bll = new UsuarioBll();
-            string mensagemErro = "";
-            Usuario usuario = bll.loadUsuario(txtEmail.Text, txtSenha.Text, out mensagemErro);
-            if (usuario == null)
+            if (Session["usuario"] != null)
             {
-                lblMensagem.Text = mensagemErro;
-                lblMensagem.Visible = true;
+                UsuarioBll bll = new UsuarioBll();
+                string mensagemErro = "";
+                Usuario usuario = bll.loadUsuario(txtEmail.Text, txtSenha.Text, out mensagemErro);
+                if (usuario == null)
+                {
+                    lblMensagem.Text = mensagemErro;
+                    lblMensagem.Visible = true;
+                }
+                else
+                {
+                    lblMensagem.Text = "";
+                    lblMensagem.Visible = false;
+                    Session["usuario"] = usuario;
+                    txtEmail.Visible = false;
+                    txtSenha.Visible = false;
+                    lblEmail.Text = "Bem vindo <b>" + usuario.nm_usuario + "</b>";
+                    HyperLinkCadastro.Visible = false;
+                    HyperLinkPerfil.Visible = true;
+                    btnLogar.Visible = false;
+                    btnLogout.Visible = true;
+                    lblSenha.Visible = false;
+                    Response.Redirect("~/Pages/Perfilusuario.aspx");
+                }
             }
             else
             {
-                lblMensagem.Text = "";
-                lblMensagem.Visible = false;
-                Session["usuario"] = usuario;
-                txtEmail.Visible = false;
-                txtSenha.Visible = false;
-                lblEmail.Text = "Bem vindo <b>" + usuario.nm_usuario + "</b>";
-                HyperLinkCadastro.Visible = false;
-                HyperLinkPerfil.Visible = true;
-                btnLogar.Visible = false;
-                btnLogout.Visible = true;
-                lblSenha.Visible = false;
+                Response.Redirect("~/Pages/SessaoExpirou.aspx");
             }
 
         }
@@ -73,7 +86,7 @@ namespace Projeto_Recomende
             Session["usuario"] = null;
             txtEmail.Visible = true;
             txtSenha.Visible = true;
-            lblEmail.Text = "E-MAIL";            
+            lblEmail.Text = "E-MAIL";
             btnLogar.Visible = true;
             btnLogout.Visible = false;
             Response.Redirect("~/Pages/Home.aspx");

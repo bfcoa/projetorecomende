@@ -33,8 +33,10 @@
         
         <center>
         <div id="titulo">
+
         <label>Titulo:</label>        
         <asp:TextBox ID="txtTitulo" Width="250" runat="server"></asp:TextBox><br />
+            <asp:Label ID="lblMensagem" Visible="false" ForeColor="Red" runat="server" Text="Label"></asp:Label><br />
         </div>
         <cc1:Editor ID="Editor1" runat="server" />
         
