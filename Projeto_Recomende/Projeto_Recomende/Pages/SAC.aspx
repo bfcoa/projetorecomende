@@ -21,8 +21,8 @@ document.getElementById('email').value="Prrencha aqui seu e-mail";
             <p><asp:Label ID="Label2" runat="server" 
                     Text="Dúvidas, críticas ou sugestões? Preencha o Formulário abaixo para conversarmos à respeito"></asp:Label>
             </p>
-            <asp:TextBox name="name" class="txt" ID="tbxNome" runat="server" Text="Nome" onfocus="this.value='';"></asp:TextBox>
-            <asp:TextBox name="email" class="txt" ID="tbxEMail" runat="server" Text="E-Mail" onfocus="this.value='';"></asp:TextBox>
+            <asp:TextBox name="name" class="txt" ID="tbxNome" runat="server" Text="Nome"></asp:TextBox>
+            <asp:TextBox name="email" class="txt" ID="tbxEMail" runat="server" Text="E-Mail"></asp:TextBox>
             <asp:DropDownList name="assunto" class="txt" ID="ddlAssunto" runat="server">
                 <asp:ListItem>Dúvida</asp:ListItem>
                 <asp:ListItem>Sugestão</asp:ListItem>

@@ -14,9 +14,27 @@ namespace Projeto_Recomende.Util
             string SMTP = ConfigurationManager.AppSettings["smtp"];
             string De = ConfigurationManager.AppSettings["emailSender"];
             string Senha = ConfigurationManager.AppSettings["emailPass"];
-                
+
             try
             {
+                System.Web.Mail.MailMessage eMail = new System.Web.Mail.MailMessage();
+                eMail.BodyFormat = System.Web.Mail.MailFormat.Text;
+                eMail.From = ConfigurationManager.AppSettings["emailSender"];
+                eMail.Fields["http://schemas.microsoft.com/cdo/configuration/smtpserver"] = SMTP;
+                eMail.Fields["http://schemas.microsoft.com/cdo/configuration/smtpserverport"] = 25;
+                eMail.Fields["http://schemas.microsoft.com/cdo/configuration/sendusing"] = 2;
+                eMail.Fields["http://schemas.microsoft.com/cdo/configuration/smtpauthenticate"] = 1;
+                eMail.Fields["http://schemas.microsoft.com/cdo/configuration/sendusername"] = De;
+                eMail.Fields["http://schemas.microsoft.com/cdo/configuration/sendpassword"] = Senha;
+                eMail.To = Para;
+                eMail.Subject = Assunto;
+                eMail.Body = "<p>E-mail enviado pelo usuário: " + ParaCC + "</p>" + Corpo;
+
+                System.Web.Mail.SmtpMail.SmtpServer = SMTP;
+                System.Web.Mail.SmtpMail.Send(eMail);
+                /*
+
+
                 int I = 0;
                 string[] Array;
                 MailMessage Mensagem = new MailMessage();
@@ -59,9 +77,11 @@ namespace Projeto_Recomende.Util
                 Mensagem.Body = Corpo;
                 mSmtpCliente.Credentials = new System.Net.NetworkCredential(De, Senha);
                 mSmtpCliente.Send(Mensagem);
+                 * */
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                string teste = ex.Message;
                 return false;
             }
             return true;
