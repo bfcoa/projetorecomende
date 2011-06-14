@@ -48,8 +48,7 @@ namespace Projeto_Recomende
 
         protected void bntLogar_Click(object sender, EventArgs e)
         {
-            if (Session["usuario"] != null)
-            {
+            
                 UsuarioBll bll = new UsuarioBll();
                 string mensagemErro = "";
                 Usuario usuario = bll.loadUsuario(txtEmail.Text, txtSenha.Text, out mensagemErro);
@@ -72,12 +71,7 @@ namespace Projeto_Recomende
                     btnLogout.Visible = true;
                     lblSenha.Visible = false;
                     Response.Redirect("~/Pages/Perfilusuario.aspx");
-                }
-            }
-            else
-            {
-                Response.Redirect("~/Pages/SessaoExpirou.aspx");
-            }
+                }                   
 
         }
 
