@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Configuration;
 using Projeto_Recomende.Util;
+using Projeto_Recomende.Codes.OBJ;
+using Projeto_Recomende.Codes.BLL;
 
 namespace Projeto_Recomende.Pages
 {
@@ -15,8 +17,9 @@ namespace Projeto_Recomende.Pages
         {
             if (Session["usuario"] != null) // Verifica se existe uma Sessão de usuário logado
             {
-                tbxNome.Text = "NomeCliente";
-                tbxEMail.Text = "EmailCliente";
+                Usuario user = (Usuario)Session["usuario"];
+                tbxNome.Text = user.nm_usuario;
+                tbxEMail.Text = user.email;
                 tbxNome.ReadOnly = true;
                 tbxEMail.ReadOnly = true;
             }
