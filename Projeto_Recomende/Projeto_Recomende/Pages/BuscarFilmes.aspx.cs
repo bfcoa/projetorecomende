@@ -13,29 +13,33 @@ namespace Projeto_Recomende.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["usuario"] == null){
-                //Response.Redirect("~/Pages/Home.aspx");
+            if (Session["usuario"] == null)
+            {
                 Response.Redirect("~/Pages/SessaoExpirou.aspx");
             }
         }
 
         protected void GridView1_PageIndexChanged(object sender, EventArgs e)
         {
-            FilmeBll bll = new FilmeBll();
-            string query = bll.BuscarFilmes(txtFilme.Text, txtAtor.Text, int.Parse(dplGenero.SelectedItem.Value), dplOrdem.SelectedIndex);
-            if (!string.IsNullOrEmpty(query))
+            if (Session["usuario"] != null)
             {
-                SqlDataSource1.SelectCommand = query;
-                SqlDataSource1.DataBind();
-                GridView1.DataBind();
-                divFilmesResult.Visible = true;
-                lblMensagem.Text = "";
-                lblMensagem.Visible = false;
-            }
-            else
-            {
-                lblMensagem.Text = "Por favor, insira o titulo do filme que deseja buscar";
-                lblMensagem.Visible = true;
+                Usuario ususario = (Usuario)Session["usuario"];
+                FilmeBll bll = new FilmeBll();
+                string query = bll.BuscarFilmes(ususario.id_usuario, txtFilme.Text, txtAtor.Text, int.Parse(dplGenero.SelectedItem.Value), dplOrdem.SelectedIndex);
+                if (!string.IsNullOrEmpty(query))
+                {
+                    SqlDataSource1.SelectCommand = query;
+                    SqlDataSource1.DataBind();
+                    GridView1.DataBind();
+                    divFilmesResult.Visible = true;
+                    lblMensagem.Text = "";
+                    lblMensagem.Visible = false;
+                }
+                else
+                {
+                    lblMensagem.Text = "Por favor, insira o titulo do filme que deseja buscar";
+                    lblMensagem.Visible = true;
+                }
             }
         }
 
@@ -97,21 +101,25 @@ namespace Projeto_Recomende.Pages
             //}
             //}
             #endregion
-            FilmeBll bll = new FilmeBll();
-            string query = bll.BuscarFilmes(txtFilme.Text, txtAtor.Text, int.Parse(dplGenero.SelectedItem.Value), dplOrdem.SelectedIndex);
-            if (!string.IsNullOrEmpty(query))
+            if (Session["usuario"] != null)
             {
-                SqlDataSource1.SelectCommand = query;
-                SqlDataSource1.DataBind();
-                GridView1.DataBind();
-                divFilmesResult.Visible = true;
-                lblMensagem.Text = "";
-                lblMensagem.Visible = false;
-            }
-            else
-            {
-                lblMensagem.Text = "Por favor, insira o titulo do filme que deseja buscar (ou o nome de algum ator/atriz que faça parte do elenco)";
-                lblMensagem.Visible = true;
+                Usuario ususario = (Usuario)Session["usuario"];
+                FilmeBll bll = new FilmeBll();
+                string query = bll.BuscarFilmes(ususario.id_usuario, txtFilme.Text, txtAtor.Text, int.Parse(dplGenero.SelectedItem.Value), dplOrdem.SelectedIndex);
+                if (!string.IsNullOrEmpty(query))
+                {
+                    SqlDataSource1.SelectCommand = query;
+                    SqlDataSource1.DataBind();
+                    GridView1.DataBind();
+                    divFilmesResult.Visible = true;
+                    lblMensagem.Text = "";
+                    lblMensagem.Visible = false;
+                }
+                else
+                {
+                    lblMensagem.Text = "Por favor, insira o titulo do filme que deseja buscar (ou o nome de algum ator/atriz que faça parte do elenco)";
+                    lblMensagem.Visible = true;
+                }
             }
         }
     }

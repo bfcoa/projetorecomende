@@ -15,7 +15,7 @@ namespace Projeto_Recomende.Pages
 
         public void ProcessRequest(HttpContext context)
         {
-            Usuario usuario = (Usuario)context.Session["usuario"];
+            int id_usuario = int.Parse(context.Request.Params["id_usuario"]);
             string action = context.Request.Params["action"];
             string cod_filme = "0";
             string mensagemResposta = "0";
@@ -24,7 +24,7 @@ namespace Projeto_Recomende.Pages
                 case "Recomendar":
                     cod_filme = context.Request.Params["cod_filme"];
                     RecomendacaoBll recomendacaobll = new RecomendacaoBll();
-                    if(recomendacaobll.Recomendar(usuario.id_usuario, int.Parse(cod_filme), out mensagemResposta)){
+                    if(recomendacaobll.Recomendar(id_usuario, int.Parse(cod_filme), out mensagemResposta)){
                         context.Response.Write("1");
                     }else{
                         context.Response.Write(mensagemResposta);
@@ -34,7 +34,7 @@ namespace Projeto_Recomende.Pages
                     cod_filme = context.Request.Params["cod_filme"];
                     string comentario = context.Request.Params["comentario"];
                     ComentarioBll comentarioBll = new ComentarioBll();
-                    if (comentarioBll.PostarComentario(usuario.id_usuario, int.Parse(cod_filme), comentario, out mensagemResposta))
+                    if (comentarioBll.PostarComentario(id_usuario, int.Parse(cod_filme), comentario, out mensagemResposta))
                     {
                         context.Response.Write("1");
                     }else{

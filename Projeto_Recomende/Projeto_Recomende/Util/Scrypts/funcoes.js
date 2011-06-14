@@ -1,7 +1,7 @@
-﻿function Recomendar(cod_filme) {
+﻿function Recomendar(cod_filme, id_usuario) {
     $.ajax({
         type: 'POST',
-        url: "JqueryHandler.ashx?action=Recomendar&cod_filme=" + cod_filme,
+        url: "JqueryHandler.ashx?action=Recomendar&cod_filme=" + cod_filme+"&id_usuario="+id_usuario,
         contentType: 'application/json',
         context: document.body,
         success: function (retorno) {
@@ -14,10 +14,10 @@
     });    
 }
 
-function Comentar(cod_filme) {
+function Comentar(cod_filme, id_usuario) {
     $.ajax({
         type: 'POST',
-        url: "JqueryHandler.ashx?action=Comentar&cod_filme=" + cod_filme + "&comentario=" + document.getElementById('Comentario' + cod_filme).children[1].value,
+        url: "JqueryHandler.ashx?action=Comentar&cod_filme=" + cod_filme + "&id_usuario="+id_usuario+"&comentario=" + document.getElementById('Comentario' + cod_filme).children[1].value,
         contentType: 'application/json',
         context: document.body,
         success: function (retorno) {
