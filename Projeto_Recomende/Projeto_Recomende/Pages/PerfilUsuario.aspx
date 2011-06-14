@@ -6,10 +6,10 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBody" runat="server">
     <div id="welcom_pan">
-        <div class="rgtWrap">
-            <div id="opcoes">
-                <a href="PerfilUsuario.aspx#perguntasPerfil">Perguntas do perfil</a>
-            </div>
+        <div id="opcoes">
+            <a href="PerfilUsuario.aspx#perguntasPerfil">Perguntas do perfil</a>
+        </div>
+        <center>
             <div id="ContentDados">
                 <asp:Label ID="lblBemvindo" runat="server">Bem Vindo, </asp:Label>
                 <asp:Label ID="lblNome" runat="server"></asp:Label>
@@ -18,7 +18,7 @@
                 <asp:Image ID="imgPerfil" runat="server" Height="128px" Width="128px" />
             </div>
             <div>
-                <asp:LinkButton ID="lbEditar" runat="server" OnClick="lbEditar_Click">Editar Perfil</asp:LinkButton>
+                <asp:LinkButton ID="lbEditar" runat="server" OnClick="lbEditar_Click">Editar Perfil</asp:LinkButton>               
             </div>
             <div class="ParteTras">
                 <center>
@@ -32,10 +32,7 @@
                 <div id="listaRecomendacoes">
                 </div>
             </div>
-        </div>
-        <center>
-            <div style="background-color: #F2F2F2; padding: 10px; margin-top: 15px; width: 96%;
-                border-style: solid; border-color: Red; border-width: 1px;">
+            <div class="ParteTras">
                 <center>
                     <h3>
                         RESPONDA AS PERGUNTAS PARA FILTRARMOS SEU PERFIL !XD</h3>
